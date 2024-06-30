@@ -6,141 +6,141 @@ extern "C" {
 #endif 
 
 #ifndef __GNUC__
-	#error Unsupported compiler. Please use GCC.
+#error Unsupported compiler. Please use GCC.
 #endif
 
 #if !defined(STM32L412) && !defined(STM32L422) && !defined(STM32L431) && !defined(STM32L432) && !defined(STM32L433) && !defined(STM32L442) && !defined(STM32L443) && !defined(STM32L451) && !defined(STM32L452) && !defined(STM32L462)
-	#error "Unsupported device."
+#error "Unsupported device."
 #endif
 
-typedef enum
-{
-	NMI_IRQn = -14,
-	HardFault_IRQn = -13,
-	MemManage_IRQn = -12,
-	BusFault_IRQn = -11,
-	UsageFault_IRQn = -10,
-	SVC_IRQn = -5,
-	Debug_Monitor_IRQn = -4,
-	PendSV_IRQn = -2,
-	SysTick_IRQn = -1,
-	WWDG_IRQn = 0,
-	PVD_PVM_IRQn = 1,
-	RTC_TAMP_IRQn = 2,
-	RTC_STAMP_IRQn = RTC_TAMP_IRQn,
-	CSS_LSE_IRQn = RTC_TAMP_IRQn,
-	RTC_WKUP_IRQn = 3,
-	FLASH_IRQn = 4,
-	RCC_IRQn = 5,
-	EXTI0_IRQn = 6,
-	EXTI1_IRQn = 7,
-	EXTI2_IRQn = 8,
-	EXTI3_IRQn = 9,
-	EXTI4_IRQn = 10,
-	DMA1_CH1_IRQn = 11,
-	DMA1_CH2_IRQn = 12,
-	DMA1_CH3_IRQn = 13,
-	DMA1_CH4_IRQn = 14,
-	DMA1_CH5_IRQn = 15,
-	DMA1_CH6_IRQn = 16,
-	DMA1_CH7_IRQn = 17,
-	ADC1_2_IRQn = 18,
+	typedef enum
+	{
+		NMI_IRQn = -14,
+		HardFault_IRQn = -13,
+		MemManage_IRQn = -12,
+		BusFault_IRQn = -11,
+		UsageFault_IRQn = -10,
+		SVC_IRQn = -5,
+		Debug_Monitor_IRQn = -4,
+		PendSV_IRQn = -2,
+		SysTick_IRQn = -1,
+		WWDG_IRQn = 0,
+		PVD_PVM_IRQn = 1,
+		RTC_TAMP_IRQn = 2,
+		RTC_STAMP_IRQn = RTC_TAMP_IRQn,
+		CSS_LSE_IRQn = RTC_TAMP_IRQn,
+		RTC_WKUP_IRQn = 3,
+		FLASH_IRQn = 4,
+		RCC_IRQn = 5,
+		EXTI0_IRQn = 6,
+		EXTI1_IRQn = 7,
+		EXTI2_IRQn = 8,
+		EXTI3_IRQn = 9,
+		EXTI4_IRQn = 10,
+		DMA1_CH1_IRQn = 11,
+		DMA1_CH2_IRQn = 12,
+		DMA1_CH3_IRQn = 13,
+		DMA1_CH4_IRQn = 14,
+		DMA1_CH5_IRQn = 15,
+		DMA1_CH6_IRQn = 16,
+		DMA1_CH7_IRQn = 17,
+		ADC1_2_IRQn = 18,
 #if !defined(STM32L412) && !defined(STM32L422)
-	CAN1_TX_IRQn = 19,
-	CAN1_RX0_IRQn = 20,
-	CAN1_RX1_IRQn = 21,
-	CAN1_SCE_IRQn = 22,
+		CAN1_TX_IRQn = 19,
+		CAN1_RX0_IRQn = 20,
+		CAN1_RX1_IRQn = 21,
+		CAN1_SCE_IRQn = 22,
 #endif
-	EXTI9_5_IRQn = 23,
-	TIM1_BRK_IRQn = 24,	
-	TIM15_IRQn = TIM1_BRK_IRQn,
-	TIM1_UP_IRQn = 25,
-	TIM16_IRQn = TIM1_UP_IRQn,
-	TIM1_TRG_COM_IRQn = 26,
-	TIM1_CC_IRQn = 27,
-	TIM2_IRQn = 28,
+		EXTI9_5_IRQn = 23,
+		TIM1_BRK_IRQn = 24,
+		TIM15_IRQn = TIM1_BRK_IRQn,
+		TIM1_UP_IRQn = 25,
+		TIM16_IRQn = TIM1_UP_IRQn,
+		TIM1_TRG_COM_IRQn = 26,
+		TIM1_CC_IRQn = 27,
+		TIM2_IRQn = 28,
 #if defined(STM32L451) || defined(STM32L452) || defined(STM32L462)
-	TIM3_IRQn = 29,
+		TIM3_IRQn = 29,
 #endif
-	I2C1_EV_IRQn = 31,
-	I2C1_ER_IRQn = 32,
+		I2C1_EV_IRQn = 31,
+		I2C1_ER_IRQn = 32,
 #if !defined(STM32L432) && !defined(STM32L442)
-	I2C2_EV_IRQn = 33,
-	I2C2_ER_IRQn = 34,
+		I2C2_EV_IRQn = 33,
+		I2C2_ER_IRQn = 34,
 #endif
-	SPI1_IRQn = 35,
+		SPI1_IRQn = 35,
 #if !defined(STM32L432) && !defined(STM32L442)
-	SPI2_IRQn = 36,
+		SPI2_IRQn = 36,
 #endif
-	USART1_IRQn = 37,
-	USART2_IRQn = 38,
+		USART1_IRQn = 37,
+		USART2_IRQn = 38,
 #if !defined(STM32L432) && !defined(STM32L442)
-	USART3_IRQn = 39,
+		USART3_IRQn = 39,
 #endif
-	EXTI15_10_IRQn = 40,
-	RTC_ALARM_IRQn = 41,
+		EXTI15_10_IRQn = 40,
+		RTC_ALARM_IRQn = 41,
 #if !defined(STM32L412) && !defined(STM32L422) && !defined(STM32L432) && !defined(STM32L442)
-	SDMMC1_IRQn = 49,
+		SDMMC1_IRQn = 49,
 #endif
-	SPI3_IRQn = 51,
+		SPI3_IRQn = 51,
 #if defined(STM32L451) || defined(STM32L452) || defined(STM32L462)
-	UART4_IRQn = 52,
+		UART4_IRQn = 52,
 #endif
-	TIM6_IRQn = 54,
+		TIM6_IRQn = 54,
 #if !defined(STM32L412) && !defined(STM32L422)
-	DACUNDER_IRQn = TIM6_IRQn,
+		DACUNDER_IRQn = TIM6_IRQn,
 #endif
 #if defined(STM32L431) || defined(STM32L432) || defined(STM32L433) || defined(STM32L442) || defined(STM32L443)
-	TIM7_IRQn = 55,
+		TIM7_IRQn = 55,
 #endif
-	DMA2_CH1_IRQn = 56,
-	DMA2_CH2_IRQn = 57,
-	DMA2_CH3_IRQn = 58,
-	DMA2_CH4_IRQn = 59,
-	DMA2_CH5_IRQn = 60,
+		DMA2_CH1_IRQn = 56,
+		DMA2_CH2_IRQn = 57,
+		DMA2_CH3_IRQn = 58,
+		DMA2_CH4_IRQn = 59,
+		DMA2_CH5_IRQn = 60,
 #if defined(STM32L451) || defined(STM32L452) || defined(STM32L462)
-	DFSDM1_FLT0_IRQn = 61,
-	DFSDM1_FLT1_IRQn = 62,
+		DFSDM1_FLT0_IRQn = 61,
+		DFSDM1_FLT1_IRQn = 62,
 #endif
-	COMP_IRQn = 64,
-	LPTIM1_IRQn = 65,
-	LPTIM2_IRQn = 66,
+		COMP_IRQn = 64,
+		LPTIM1_IRQn = 65,
+		LPTIM2_IRQn = 66,
 #if !defined(STM32L431) && !defined(STM32L451)
-	USB_IRQn = 67,
+		USB_IRQn = 67,
 #endif
-	DMA2_CH6_IRQn = 68,
-	DMA2_CH7_IRQn = 69,
-	LPUART1_IRQn = 70,
-	QUADSPI_IRQn = 71,
-	I2C3_EV_IRQn = 72,
-	I2C3_ER_IRQn = 73,
+		DMA2_CH6_IRQn = 68,
+		DMA2_CH7_IRQn = 69,
+		LPUART1_IRQn = 70,
+		QUADSPI_IRQn = 71,
+		I2C3_EV_IRQn = 72,
+		I2C3_ER_IRQn = 73,
 #if !defined(STM32L412) && !defined(STM32L422)
-	SAI1_IRQn = 74,
+		SAI1_IRQn = 74,
 #endif
 #if defined(STM32L431) || defined(STM32L432) || defined(STM32L433) || defined(STM32L442) || defined(STM32L443)
-	SWPMI1_IRQn = 76,
+		SWPMI1_IRQn = 76,
 #endif
-	TSC_IRQn = 77,
+		TSC_IRQn = 77,
 #if defined(STM32L433) || defined(STM32L443)
-	LCD_IRQn = 78,
+		LCD_IRQn = 78,
 #endif
 #if defined(STM32L422) || defined(STM32L442) || defined(STM32L443) || defined(STM32L462)
-	AES_IRQn = 79,
+		AES_IRQn = 79,
 #endif
-	RNG_IRQn = 80,
-	FPU_IRQn = 81,
-	CRS_IRQn = 82,
+		RNG_IRQn = 80,
+		FPU_IRQn = 81,
+		CRS_IRQn = 82,
 #if defined(STM32L451) || defined(STM32L452) || defined(STM32L462)
-	I2C4_EV_IRQn = 83,
-	I2C4_ER_IRQn = 84
+		I2C4_EV_IRQn = 83,
+		I2C4_ER_IRQn = 84
 #endif
-}IRQn_Type;
+	}IRQn_Type;
 
-/* ========================================================================= */
-/* ============      Processor and Core Peripheral Section      ============ */
-/* ========================================================================= */
+	/* ========================================================================= */
+	/* ============      Processor and Core Peripheral Section      ============ */
+	/* ========================================================================= */
 
-/* ================ Start of section using anonymous unions ================ */
+	/* ================ Start of section using anonymous unions ================ */
 #if defined (__GNUC__)
 /* anonymous unions are enabled by default */
 #else
@@ -148,7 +148,7 @@ typedef enum
 #endif
 
 
-/* ================    Configuration of Core Peripherals    ================ */
+		/* ================    Configuration of Core Peripherals    ================ */
 #define __CM4_REV               0x0001U  /* Core Revision r0p1 */
 #define __Vendor_SysTickConfig  0U       /* Set to 1 if different SysTick Config is used */
 #define __NVIC_PRIO_BITS        4U       /* Number of Bits used for Priority Levels */
@@ -176,22 +176,22 @@ typedef enum
 /* ============                      FLASH                      ============ */
 /* ========================================================================= */
 typedef struct
-{
-	__IOM uint32_t ACR; /*!< FLASH access control register. */
-	__OM uint32_t PDKEYR; /*!< FLASH power down key register. */
-	__OM uint32_t KEYR; /*!< FLASH key register. */
-	__OM uint32_t OPTKEYR; /*!< FLASH option key register. */
-	__IOM uint32_t SR; /*!< FLASH status register. */
-	__IOM uint32_t CR; /*!< FLASH control register. */
-	__IOM uint32_t ECCR; /*!< FLASH ECC register. */
-	__IOM uint32_t OPTR; /*!< FLASH option register. */
-	__IOM uint32_t PCROP1SR; /*!< FLASH PCROP start address register. */
-	__IOM uint32_t PCROP1ER; /*!< FLASH PCROP end address register. */
-	__IOM uint32_t WRP1AR; /*!< FLASH WRP area A address register. */
-	__IOM uint32_t WRP1BR; /*!< FLASH WRP area B address register. */
-}STM32L4xx_FLASH_TypeDef;
+	{
+		__IOM uint32_t ACR; /*!< FLASH access control register. */
+		__OM uint32_t PDKEYR; /*!< FLASH power down key register. */
+		__OM uint32_t KEYR; /*!< FLASH key register. */
+		__OM uint32_t OPTKEYR; /*!< FLASH option key register. */
+		__IOM uint32_t SR; /*!< FLASH status register. */
+		__IOM uint32_t CR; /*!< FLASH control register. */
+		__IOM uint32_t ECCR; /*!< FLASH ECC register. */
+		__IOM uint32_t OPTR; /*!< FLASH option register. */
+		__IOM uint32_t PCROP1SR; /*!< FLASH PCROP start address register. */
+		__IOM uint32_t PCROP1ER; /*!< FLASH PCROP end address register. */
+		__IOM uint32_t WRP1AR; /*!< FLASH WRP area A address register. */
+		__IOM uint32_t WRP1BR; /*!< FLASH WRP area B address register. */
+	}STM32L4xx_FLASH_TypeDef;
 
-/*ACR register*/
+	/*ACR register*/
 #define FLASH_ACR_SLEEP_PD_Pos 14U
 #define FLASH_ACR_SLEEP_PD_Msk (0x1UL << FLASH_ACR_SLEEP_PD_Pos)
 #define FLASH_ACR_SLEEP_PD FLASH_ACR_SLEEP_PD_Msk
@@ -467,19 +467,19 @@ typedef struct
 /* ========================================================================= */
 /* ============                    FIREWALL                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CSSA; /*!< FIREWALL Code Segment Start Address register. */
-	__IOM uint32_t CSL; /*!< FIREWALL Code Segment Length register. */
-	__IOM uint32_t NVDSSA; /*!< FIREWALL None Volatile Data Segment Start Address register. */
-	__IOM uint32_t NVDSL; /*!< FIREWALL None Volatile Data Segment Length register. */
-	__IOM uint32_t VDSSA; /*!< FIREWALL Volatile Data Segment Start Address register. */
-	__IOM uint32_t VDSL; /*!< FIREWALL Volatile Data Segment Length register. */
-	uint32_t RESERVED[2];
-	__IOM uint32_t CR; /*!< FIREWALL Configuration register. */
-}STM32L4xx_FW_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CSSA; /*!< FIREWALL Code Segment Start Address register. */
+		__IOM uint32_t CSL; /*!< FIREWALL Code Segment Length register. */
+		__IOM uint32_t NVDSSA; /*!< FIREWALL None Volatile Data Segment Start Address register. */
+		__IOM uint32_t NVDSL; /*!< FIREWALL None Volatile Data Segment Length register. */
+		__IOM uint32_t VDSSA; /*!< FIREWALL Volatile Data Segment Start Address register. */
+		__IOM uint32_t VDSL; /*!< FIREWALL Volatile Data Segment Length register. */
+		uint32_t RESERVED[2];
+		__IOM uint32_t CR; /*!< FIREWALL Configuration register. */
+	}STM32L4xx_FW_TypeDef;
 
-/*CSSA register*/
+	/*CSSA register*/
 #define FW_CSSA_ADD_Pos 8U
 #define FW_CSSA_ADD_Msk (0xFFFFUL << FW_CSSA_ADD_Pos)
 #define FW_CSSA_ADD FW_CSSA_ADD_Msk
@@ -525,35 +525,35 @@ typedef struct
 /* ========================================================================= */
 /* ============                       PWR                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< Power Control Register 1. */
-	__IOM uint32_t CR2; /*!< Power Control Register 2. */
-	__IOM uint32_t CR3; /*!< Power Control Register 3. */
-	__IOM uint32_t CR4; /*!< Power Control Register 4. */
-	__IM uint32_t SR1; /*!< Power Status Register 1. */
-	__IM uint32_t SR2; /*!< Power Status Register 2. */
-	__OM uint32_t SCR; /*!< Power Status Clear Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t PUCRA; /*!< Power Pull-Up Control Register Port A. */
-	__IOM uint32_t PDCRA; /*!< Power Pull-Down Control Register Port A. */
-	__IOM uint32_t PUCRB; /*!< Power Pull-Down Control Register Port B. */
-	__IOM uint32_t PDCRB; /*!< Power Pull-Up Control Register Port B. */
-	__IOM uint32_t PUCRC; /*!< Power Pull-Up Control Register Port C. */
-	__IOM uint32_t PDCRC; /*!< Power Pull-Down Control Register Port C. */
-	__IOM uint32_t PUCRD; /*!< Power Pull-Up Control Register Port D. */
-	__IOM uint32_t PDCRD; /*!< Power Pull-Down Control Register Port D. */
-	__IOM uint32_t PUCRE; /*!< Power Pull-Up Control Register Port A. */
-	__IOM uint32_t PDCRE; /*!< Power Pull-Down Control Register Port D. */
-	uint32_t RESERVED1;
-	uint32_t RESERVED2;
-	uint32_t RESERVED3;
-	uint32_t RESERVED4;
-	__IOM uint32_t PUCRH; /*!< Power Pull-Up Control Register Port H. */
-	__IOM uint32_t PDCRH; /*!< Power Pull-Down Control Register Port H. */
-}STM32L4xx_PWR_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< Power Control Register 1. */
+		__IOM uint32_t CR2; /*!< Power Control Register 2. */
+		__IOM uint32_t CR3; /*!< Power Control Register 3. */
+		__IOM uint32_t CR4; /*!< Power Control Register 4. */
+		__IM uint32_t SR1; /*!< Power Status Register 1. */
+		__IM uint32_t SR2; /*!< Power Status Register 2. */
+		__OM uint32_t SCR; /*!< Power Status Clear Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t PUCRA; /*!< Power Pull-Up Control Register Port A. */
+		__IOM uint32_t PDCRA; /*!< Power Pull-Down Control Register Port A. */
+		__IOM uint32_t PUCRB; /*!< Power Pull-Down Control Register Port B. */
+		__IOM uint32_t PDCRB; /*!< Power Pull-Up Control Register Port B. */
+		__IOM uint32_t PUCRC; /*!< Power Pull-Up Control Register Port C. */
+		__IOM uint32_t PDCRC; /*!< Power Pull-Down Control Register Port C. */
+		__IOM uint32_t PUCRD; /*!< Power Pull-Up Control Register Port D. */
+		__IOM uint32_t PDCRD; /*!< Power Pull-Down Control Register Port D. */
+		__IOM uint32_t PUCRE; /*!< Power Pull-Up Control Register Port A. */
+		__IOM uint32_t PDCRE; /*!< Power Pull-Down Control Register Port D. */
+		uint32_t RESERVED1;
+		uint32_t RESERVED2;
+		uint32_t RESERVED3;
+		uint32_t RESERVED4;
+		__IOM uint32_t PUCRH; /*!< Power Pull-Up Control Register Port H. */
+		__IOM uint32_t PDCRH; /*!< Power Pull-Down Control Register Port H. */
+	}STM32L4xx_PWR_TypeDef;
 
-/*CR1 register*/
+	/*CR1 register*/
 #define PWR_CR1_LPR_Pos 14U
 #define PWR_CR1_LPR_Msk (0x1UL << PWR_CR1_LPR_Pos)
 #define PWR_CR1_LPR PWR_CR1_LPR_Msk
@@ -1446,55 +1446,55 @@ typedef struct
 /* ========================================================================= */
 /* ============                       RCC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< Clock Control Register. */
-	__IOM uint32_t ICSCR; /*!< Internal Clock Sources Calibration Register. */
-	__IOM uint32_t CFGR; /*!< Clock Configuration Register. */
-	__IOM uint32_t PLLCFGR; /*!< PLL Configuration Register. */
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< Clock Control Register. */
+		__IOM uint32_t ICSCR; /*!< Internal Clock Sources Calibration Register. */
+		__IOM uint32_t CFGR; /*!< Clock Configuration Register. */
+		__IOM uint32_t PLLCFGR; /*!< PLL Configuration Register. */
 #if !defined(STM32L412) && !defined(STM32L422)
-	__IOM uint32_t PLLSAI1CFGR; /*!< PLLSAI1 Configuration Register. */
+		__IOM uint32_t PLLSAI1CFGR; /*!< PLLSAI1 Configuration Register. */
 #else
-	uint32_t RESERVED0;
+		uint32_t RESERVED0;
 #endif
-	uint32_t RESERVED1;
-	__IOM uint32_t CIER; /*!< Clock Interrupt Enable Register. */
-	__IM uint32_t CIFR; /*!< Clock Interrupt Flag Register. */
-	__OM uint32_t CICR; /*!< Clock Interrupt Clear Register. */
-	uint32_t RESERVED2;
-	__IOM uint32_t AHB1RSTR; /*!< AHB1 Peripheral Reset Register. */
-	__IOM uint32_t AHB2RSTR; /*!< AHB2 Peripheral Reset Register. */
-	__IOM uint32_t AHB3RSTR; /*!< AHB3 Peripheral Reset Register. */
-	uint32_t RESERVED3;
-	__IOM uint32_t APB1RSTR1; /*!< APB1 Peripheral Reset Register 1. */
-	__IOM uint32_t APB1RSTR2; /*!< APB1 Peripheral Reset Register 2. */
-	__IOM uint32_t APB2RSTR; /*!< APB2 Peripheral Reset Register. */
-	uint32_t RESERVED4;
-	__IOM uint32_t AHB1ENR; /*!< AHB1 Peripheral Clock Enable Register. */
-	__IOM uint32_t AHB2ENR; /*!< AHB2 Peripheral Clock Enable Register. */
-	__IOM uint32_t AHB3ENR; /*!< AHB3 Peripheral Clock Enable Register. */
-	uint32_t RESERVED5;
-	__IOM uint32_t APB1ENR1; /*!< APB1 Peripheral Clock Enable Register 1. */
-	__IOM uint32_t APB1ENR2; /*!< APB1 Peripheral Clock Enable Register 2. */
-	__IOM uint32_t APB2ENR; /*!< APB2 Peripheral Clock Enable Register. */
-	uint32_t RESERVED6;
-	__IOM uint32_t AHB1SMENR; /*!< AHB1 Peripheral Clock Enable in Sleep and Stop Modes Register. */
-	__IOM uint32_t AHB2SMENR; /*!< AHB2 Peripheral Clock Enable in Sleep and Stop Modes Register. */
-	__IOM uint32_t AHB3SMENR; /*!< AHB3 Peripheral Clock Enable in Sleep and Stop Modes Register. */
-	uint32_t RESERVED7;
-	__IOM uint32_t APB1SMENR1; /*!< APB1 Peripheral Clock Enable in Sleep and Stop Modes Register 1. */
-	__IOM uint32_t APB1SMENR2; /*!< APB1 Peripheral Clock Enable in Sleep and Stop Modes Register 2. */
-	__IOM uint32_t APB2SMENR; /*!< APB2 Peripheral Clock Enable in Sleep and Stop Modes Register. */
-	uint32_t RESERVED8;
-	__IOM uint32_t CCIPR; /*!< Peripherals Independent Clock Configuration Register. */
-	uint32_t RESERVED9;
-	__IOM uint32_t BDCR; /*!< Backup Domain Control Register. */
-	__IOM uint32_t CSR; /*!< Control/Status Register. */
-	__IOM uint32_t CRRCR; /*!< Clock Recovery RC Register. */
-	__IOM uint32_t CCIPR2; /*!< Peripherals Independent Clock Configuration Register 2. */	
-}STM32L4xx_RCC_TypeDef;
+		uint32_t RESERVED1;
+		__IOM uint32_t CIER; /*!< Clock Interrupt Enable Register. */
+		__IM uint32_t CIFR; /*!< Clock Interrupt Flag Register. */
+		__OM uint32_t CICR; /*!< Clock Interrupt Clear Register. */
+		uint32_t RESERVED2;
+		__IOM uint32_t AHB1RSTR; /*!< AHB1 Peripheral Reset Register. */
+		__IOM uint32_t AHB2RSTR; /*!< AHB2 Peripheral Reset Register. */
+		__IOM uint32_t AHB3RSTR; /*!< AHB3 Peripheral Reset Register. */
+		uint32_t RESERVED3;
+		__IOM uint32_t APB1RSTR1; /*!< APB1 Peripheral Reset Register 1. */
+		__IOM uint32_t APB1RSTR2; /*!< APB1 Peripheral Reset Register 2. */
+		__IOM uint32_t APB2RSTR; /*!< APB2 Peripheral Reset Register. */
+		uint32_t RESERVED4;
+		__IOM uint32_t AHB1ENR; /*!< AHB1 Peripheral Clock Enable Register. */
+		__IOM uint32_t AHB2ENR; /*!< AHB2 Peripheral Clock Enable Register. */
+		__IOM uint32_t AHB3ENR; /*!< AHB3 Peripheral Clock Enable Register. */
+		uint32_t RESERVED5;
+		__IOM uint32_t APB1ENR1; /*!< APB1 Peripheral Clock Enable Register 1. */
+		__IOM uint32_t APB1ENR2; /*!< APB1 Peripheral Clock Enable Register 2. */
+		__IOM uint32_t APB2ENR; /*!< APB2 Peripheral Clock Enable Register. */
+		uint32_t RESERVED6;
+		__IOM uint32_t AHB1SMENR; /*!< AHB1 Peripheral Clock Enable in Sleep and Stop Modes Register. */
+		__IOM uint32_t AHB2SMENR; /*!< AHB2 Peripheral Clock Enable in Sleep and Stop Modes Register. */
+		__IOM uint32_t AHB3SMENR; /*!< AHB3 Peripheral Clock Enable in Sleep and Stop Modes Register. */
+		uint32_t RESERVED7;
+		__IOM uint32_t APB1SMENR1; /*!< APB1 Peripheral Clock Enable in Sleep and Stop Modes Register 1. */
+		__IOM uint32_t APB1SMENR2; /*!< APB1 Peripheral Clock Enable in Sleep and Stop Modes Register 2. */
+		__IOM uint32_t APB2SMENR; /*!< APB2 Peripheral Clock Enable in Sleep and Stop Modes Register. */
+		uint32_t RESERVED8;
+		__IOM uint32_t CCIPR; /*!< Peripherals Independent Clock Configuration Register. */
+		uint32_t RESERVED9;
+		__IOM uint32_t BDCR; /*!< Backup Domain Control Register. */
+		__IOM uint32_t CSR; /*!< Control/Status Register. */
+		__IOM uint32_t CRRCR; /*!< Clock Recovery RC Register. */
+		__IOM uint32_t CCIPR2; /*!< Peripherals Independent Clock Configuration Register 2. */
+	}STM32L4xx_RCC_TypeDef;
 
-/*CR register*/
+	/*CR register*/
 #if !defined(STM32L412) && !defined(STM32L422)
 #define RCC_CR_PLLSAIRDY_Pos 27U
 #define RCC_CR_PLLSAIRDY_Msk (0x1UL << RCC_CR_PLLSAIRDY_Pos)
@@ -2415,7 +2415,7 @@ typedef struct
 #if defined(STM32L422) || defined(STM32L442) || defined(STM32L443) || defined(STM32L462)
 #define RCC_AHB2SMENR_AESSMEN_Pos 16U
 #define RCC_AHB2SMENR_AESSMEN_Msk (0x1UL << RCC_AHB2SMENR_AESSMEN_Pos)
-#defined RCC_AHB2SMENR_AESSMEN RCC_AHB2SMENR_AESSMEN_Msk
+	#defined RCC_AHB2SMENR_AESSMEN RCC_AHB2SMENR_AESSMEN_Msk
 #endif
 
 #define RCC_AHB2SMENR_ADCSMEN_Pos 13U
@@ -2454,7 +2454,7 @@ typedef struct
 #define RCC_AHB2SMENR_GPIOASMEN_Msk (0x1UL << RCC_AHB2SMENR_GPIOASMEN_Pos)
 #define RCC_AHB2SMENR_GPIOASMEN RCC_AHB2SMENR_GPIOASMEN_Msk
 
-/*AHB3SMENR register*/
+		/*AHB3SMENR register*/
 #define RCC_AHB3SMENR_QSPISMEN_Pos 8U
 #define RCC_AHB3SMENR_QSPISMEN_Msk (0x1UL << RCC_AHB3SMENR_QSPISMEN_Pos)
 #define RCC_AHB3SMENR_QSPISMEN RCC_AHB3SMENR_QSPISMEN_Msk
@@ -2881,14 +2881,14 @@ typedef struct
 /* ============                       CRS                       ============ */
 /* ========================================================================= */
 typedef struct
-{
-	__IOM uint32_t CR; /*!< CRS Control Register. */
-	__IOM uint32_t CFGR; /*!< CRS Configuration Register. */
-	__IM uint32_t ISR; /*!< CRS Interrupt and Status Register. */
-	__IOM uint32_t ICR; /*!< CRS Interrupt flag Clear Register. */
-}STM32L4xx_CRS_TypeDef;
+	{
+		__IOM uint32_t CR; /*!< CRS Control Register. */
+		__IOM uint32_t CFGR; /*!< CRS Configuration Register. */
+		__IM uint32_t ISR; /*!< CRS Interrupt and Status Register. */
+		__IOM uint32_t ICR; /*!< CRS Interrupt flag Clear Register. */
+	}STM32L4xx_CRS_TypeDef;
 
-/*CR register*/
+	/*CR register*/
 #define CRS_CR_TRIM_Pos 8U
 #define CRS_CR_TRIM_Msk (0x3FUL << CRS_CR_TRIM_Pos)
 #define CRS_CR_TRIM CRS_CR_TRIM_Msk
@@ -3010,22 +3010,22 @@ typedef struct
 /* ========================================================================= */
 /* ============                       GPIO                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t MODER; /*!< GPIO Port Mode Register. */
-	__IOM uint32_t OTYPER; /*!< GPIO Port Output Type Register. */
-	__IOM uint32_t OSPEEDR; /*!< GPIO Port Output Speed Register. */
-	__IOM uint32_t PUPDR; /*!< GPIO Port Pull-Up/Pull-Down Register. */
-	__IM uint32_t IDR; /*!< GPIO Port Input Data Register. */
-	__IOM uint32_t ODR; /*!< GPIO Port Output Data Register. */
-	__OM uint32_t BSRR; /*!< GPIO Port Bit Set/Reset Register. */
-	__IOM uint32_t LCKR; /*!< GPIO Port Configuration Lock Register. */
-	__IOM uint32_t AFRL; /*!< GPIO Port Alternate Function Low Register. */
-	__IOM uint32_t AFRH; /*!< GPIO Port Alternate Function High Register. */
-	__IOM uint32_t BRR; /*!< GPIO Port Bit Reset Register. */
-}STM32L4xx_GPIO_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t MODER; /*!< GPIO Port Mode Register. */
+		__IOM uint32_t OTYPER; /*!< GPIO Port Output Type Register. */
+		__IOM uint32_t OSPEEDR; /*!< GPIO Port Output Speed Register. */
+		__IOM uint32_t PUPDR; /*!< GPIO Port Pull-Up/Pull-Down Register. */
+		__IM uint32_t IDR; /*!< GPIO Port Input Data Register. */
+		__IOM uint32_t ODR; /*!< GPIO Port Output Data Register. */
+		__OM uint32_t BSRR; /*!< GPIO Port Bit Set/Reset Register. */
+		__IOM uint32_t LCKR; /*!< GPIO Port Configuration Lock Register. */
+		__IOM uint32_t AFRL; /*!< GPIO Port Alternate Function Low Register. */
+		__IOM uint32_t AFRH; /*!< GPIO Port Alternate Function High Register. */
+		__IOM uint32_t BRR; /*!< GPIO Port Bit Reset Register. */
+	}STM32L4xx_GPIO_TypeDef;
 
-/*MODER register*/
+	/*MODER register*/
 #define GPIO_MODER_MODE15_Pos 30U
 #define GPIO_MODER_MODE15_Msk (0x3U << GPIO_MODER_MODE15_Pos)
 #define GPIO_MODER_MODE15 GPIO_MODER_MODE15_Msk
@@ -3923,21 +3923,21 @@ typedef struct
 /* ========================================================================= */
 /* ============                      SYSCFG                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t MEMRMP; /*!< SYSCFG Memory Remap Register. */
-	__IOM uint32_t CFGR1; /*!< SYSCFG Configuration Register 1. */
-	__IOM uint32_t EXTICR1; /*!< SYSCFG External Interrupt Configuration Register 1. */
-	__IOM uint32_t EXTICR2; /*!< SYSCFG External Interrupt Configuration Register 2. */
-	__IOM uint32_t EXTICR3; /*!< SYSCFG External Interrupt Configuration Register 3. */
-	__IOM uint32_t EXTICR4; /*!< SYSCFG External Interrupt Configuration Register 4. */
-	__IOM uint32_t SCSR; /*!< SYSCFG SRAM2 Control and Status Register. */
-	__IOM uint32_t CFGR2; /*!< SYSCFG Configuration Register 2. */
-	__OM uint32_t SWPR; /*!< SYSCFG SRAM2 Write Protection Register. */
-	__OM uint32_t SKR; /*!< SYSCFG SRAM2 Key Register. */
-}STM32L4xx_SYSCFG_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t MEMRMP; /*!< SYSCFG Memory Remap Register. */
+		__IOM uint32_t CFGR1; /*!< SYSCFG Configuration Register 1. */
+		__IOM uint32_t EXTICR1; /*!< SYSCFG External Interrupt Configuration Register 1. */
+		__IOM uint32_t EXTICR2; /*!< SYSCFG External Interrupt Configuration Register 2. */
+		__IOM uint32_t EXTICR3; /*!< SYSCFG External Interrupt Configuration Register 3. */
+		__IOM uint32_t EXTICR4; /*!< SYSCFG External Interrupt Configuration Register 4. */
+		__IOM uint32_t SCSR; /*!< SYSCFG SRAM2 Control and Status Register. */
+		__IOM uint32_t CFGR2; /*!< SYSCFG Configuration Register 2. */
+		__OM uint32_t SWPR; /*!< SYSCFG SRAM2 Write Protection Register. */
+		__OM uint32_t SKR; /*!< SYSCFG SRAM2 Key Register. */
+	}STM32L4xx_SYSCFG_TypeDef;
 
-/*MEMRMP register*/
+	/*MEMRMP register*/
 #define SYSCFG_MEMRMP_MEM_MODE_Pos 0U
 #define SYSCFG_MEMRMP_MEM_MODE_Msk (0x7U << SYSCFG_MEMRMP_MEM_MODE_Pos)
 #define SYSCFG_MEMRMP_MEM_MODE SYSCFG_MEMRMP_MEM_MODE_Msk
@@ -4331,50 +4331,50 @@ typedef struct
 /* ========================================================================= */
 /* ============                       DMA                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IM uint32_t ISR; /*!< DMA Interrupt Status Register. */
-	__OM uint32_t IFCR; /*!< DMA Interrupt Flag Clear Register. */ 
-	__IOM uint32_t CCR1; /*!< DMA Channel 1 Configuration Register. */
-	__IOM uint32_t CNDTR1; /*!< DMA Channel 1 Number of Data to Transfer Register. */
-	__IOM uint32_t CPAR1; /*!< DMA Channel 1 Peripheral Address Register. */
-	__IOM uint32_t CMAR1; /*!< DMA Channel 1 Memory Address Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t CCR2; /*!< DMA Channel 2 Configuration Register. */
-	__IOM uint32_t CNDTR2; /*!< DMA Channel 2 Number of Data to Transfer Register. */
-	__IOM uint32_t CPAR2; /*!< DMA Channel 2 Peripheral Address Register. */
-	__IOM uint32_t CMAR2; /*!< DMA Channel 2 Memory Address Register. */
-	uint32_t RESERVED1;
-	__IOM uint32_t CCR3; /*!< DMA Channel 3 Configuration Register. */
-	__IOM uint32_t CNDTR3; /*!< DMA Channel 3 Number of Data to Transfer Register. */
-	__IOM uint32_t CPAR3; /*!< DMA Channel 3 Peripheral Address Register. */
-	__IOM uint32_t CMAR3; /*!< DMA Channel 3 Memory Address Register. */
-	uint32_t RESERVED2;
-	__IOM uint32_t CCR4; /*!< DMA Channel 4 Configuration Register. */
-	__IOM uint32_t CNDTR4; /*!< DMA Channel 4 Number of Data to Transfer Register. */ 
-	__IOM uint32_t CPAR4; /*!< DMA Channel 4 Peripheral Address Register. */
-	__IOM uint32_t CMAR4; /*!< DMA Channel 4 Memory Address Register. */
-	uint32_t RESERVED3;
-	__IOM uint32_t CCR5; /*!< DMA Channel 5 Configuration Register. */
-	__IOM uint32_t CNDTR5; /*!< DMA Channel 5 Number of Data to Transfer Register. */
-	__IOM uint32_t CPAR5; /*!< DMA Channel 5 Peripheral Address Register. */
-	__IOM uint32_t CMAR5; /*!< DMA Channel 5 Memory Address Register. */
-	uint32_t RESERVED4;
-	__IOM uint32_t CCR6; /*!< DMA Channel 6 Configuration Register. */
-	__IOM uint32_t CNDTR6; /*!< DMA Channel 6 Number of Data to Transfer Register. */
-	__IOM uint32_t CPAR6; /*!< DMA Channel 6 Peripheral Address Register. */
-	__IOM uint32_t CMAR6; /*!< DMA Channel 6 Memory Address Register. */
-	uint32_t RESERVED5;
-	__IOM uint32_t CCR7; /*!< DMA Channel 7 Configuration Register. */
-	__IOM uint32_t CNDTR7; /*!< DMA Channel 7 Number of Data to Transfer Register. */
-	__IOM uint32_t CPAR7; /*!< DMA Channel 7 Peripheral Address Register. */
-	__IOM uint32_t CMAR7; /*!< DMA Channel 7 Memory Address Register. */
-	uint32_t RESERVED6;
-	uint32_t RESERVED7[5];
-	__IOM uint32_t CSELR; /*!< DMA Channel Selection Register. */
-}STM32L4xx_DMA_TypeDef;
+	typedef struct
+	{
+		__IM uint32_t ISR; /*!< DMA Interrupt Status Register. */
+		__OM uint32_t IFCR; /*!< DMA Interrupt Flag Clear Register. */
+		__IOM uint32_t CCR1; /*!< DMA Channel 1 Configuration Register. */
+		__IOM uint32_t CNDTR1; /*!< DMA Channel 1 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR1; /*!< DMA Channel 1 Peripheral Address Register. */
+		__IOM uint32_t CMAR1; /*!< DMA Channel 1 Memory Address Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t CCR2; /*!< DMA Channel 2 Configuration Register. */
+		__IOM uint32_t CNDTR2; /*!< DMA Channel 2 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR2; /*!< DMA Channel 2 Peripheral Address Register. */
+		__IOM uint32_t CMAR2; /*!< DMA Channel 2 Memory Address Register. */
+		uint32_t RESERVED1;
+		__IOM uint32_t CCR3; /*!< DMA Channel 3 Configuration Register. */
+		__IOM uint32_t CNDTR3; /*!< DMA Channel 3 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR3; /*!< DMA Channel 3 Peripheral Address Register. */
+		__IOM uint32_t CMAR3; /*!< DMA Channel 3 Memory Address Register. */
+		uint32_t RESERVED2;
+		__IOM uint32_t CCR4; /*!< DMA Channel 4 Configuration Register. */
+		__IOM uint32_t CNDTR4; /*!< DMA Channel 4 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR4; /*!< DMA Channel 4 Peripheral Address Register. */
+		__IOM uint32_t CMAR4; /*!< DMA Channel 4 Memory Address Register. */
+		uint32_t RESERVED3;
+		__IOM uint32_t CCR5; /*!< DMA Channel 5 Configuration Register. */
+		__IOM uint32_t CNDTR5; /*!< DMA Channel 5 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR5; /*!< DMA Channel 5 Peripheral Address Register. */
+		__IOM uint32_t CMAR5; /*!< DMA Channel 5 Memory Address Register. */
+		uint32_t RESERVED4;
+		__IOM uint32_t CCR6; /*!< DMA Channel 6 Configuration Register. */
+		__IOM uint32_t CNDTR6; /*!< DMA Channel 6 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR6; /*!< DMA Channel 6 Peripheral Address Register. */
+		__IOM uint32_t CMAR6; /*!< DMA Channel 6 Memory Address Register. */
+		uint32_t RESERVED5;
+		__IOM uint32_t CCR7; /*!< DMA Channel 7 Configuration Register. */
+		__IOM uint32_t CNDTR7; /*!< DMA Channel 7 Number of Data to Transfer Register. */
+		__IOM uint32_t CPAR7; /*!< DMA Channel 7 Peripheral Address Register. */
+		__IOM uint32_t CMAR7; /*!< DMA Channel 7 Memory Address Register. */
+		uint32_t RESERVED6;
+		uint32_t RESERVED7[5];
+		__IOM uint32_t CSELR; /*!< DMA Channel Selection Register. */
+	}STM32L4xx_DMA_TypeDef;
 
-/*ISR register*/
+	/*ISR register*/
 #define DMA_ISR_TEIF7_Pos 27U
 #define DMA_ISR_TEIF7_Msk (0x1UL << DMA_ISR_TEIF7_Pos)
 #define DMA_ISR_TEIF7 DMA_ISR_TEIF7_Msk
@@ -4692,23 +4692,23 @@ typedef struct
 /* ========================================================================= */
 /* ============                       EXTI                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t IMR1; /*!< Interrupt Mask Register 1. */
-	__IOM uint32_t EMR1; /*!< Event Mask Register 1. */
-	__IOM uint32_t RTSR1; /*!< Rising Trigger Selection Register 1. */
-	__IOM uint32_t FTSR1; /*!< Falling Trigger Selection Register 1. */
-	__IOM uint32_t SWIER1; /*!< Software Interrupt Event Register 1. */
-	__IOM uint32_t PR1; /*!< Pending Register 1. */
-	__IOM uint32_t IMR2; /*!< Interrupt Mask Register 2. */
-	__IOM uint32_t EMR2; /*!< Event Mask Register 2. */
-	__IOM uint32_t RTSR2; /*!< Rising Trigger Selection Register 2. */
-	__IOM uint32_t FTSR2; /*!< Falling Trigger Selection Register 2. */
-	__IOM uint32_t SWIER2; /*!< Software Interrupt Event Register 2. */
-	__IOM uint32_t PR2; /*!< Pending Register 2. */
-}STM32L4xx_EXTI_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t IMR1; /*!< Interrupt Mask Register 1. */
+		__IOM uint32_t EMR1; /*!< Event Mask Register 1. */
+		__IOM uint32_t RTSR1; /*!< Rising Trigger Selection Register 1. */
+		__IOM uint32_t FTSR1; /*!< Falling Trigger Selection Register 1. */
+		__IOM uint32_t SWIER1; /*!< Software Interrupt Event Register 1. */
+		__IOM uint32_t PR1; /*!< Pending Register 1. */
+		__IOM uint32_t IMR2; /*!< Interrupt Mask Register 2. */
+		__IOM uint32_t EMR2; /*!< Event Mask Register 2. */
+		__IOM uint32_t RTSR2; /*!< Rising Trigger Selection Register 2. */
+		__IOM uint32_t FTSR2; /*!< Falling Trigger Selection Register 2. */
+		__IOM uint32_t SWIER2; /*!< Software Interrupt Event Register 2. */
+		__IOM uint32_t PR2; /*!< Pending Register 2. */
+	}STM32L4xx_EXTI_TypeDef;
 
-/*IMR1 register*/
+	/*IMR1 register*/
 #define EXTI_IMR1_IM31_Pos 31U
 #define EXTI_IMR1_IM31_Msk (0x1UL << EXTI_IMR1_IM31_Pos)
 #define EXTI_IMR1_IM31 EXTI_IMR1_IM31_Msk
@@ -5443,17 +5443,17 @@ typedef struct
 /* ========================================================================= */
 /* ============                       CRC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t DR; /*!< Data Register. */
-	__IOM uint32_t IDR; /*!< Independent Data Register. */
-	__IOM uint32_t CR; /*!< Control Register. */
-	uint32_t RESERVED; 
-	__IOM uint32_t INIT; /*!< Initial CRC value. */	
-	__IOM uint32_t POL; /*!< CRC Polynomial. */
-}STM32L4xx_CRC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t DR; /*!< Data Register. */
+		__IOM uint32_t IDR; /*!< Independent Data Register. */
+		__IOM uint32_t CR; /*!< Control Register. */
+		uint32_t RESERVED;
+		__IOM uint32_t INIT; /*!< Initial CRC value. */
+		__IOM uint32_t POL; /*!< CRC Polynomial. */
+	}STM32L4xx_CRC_TypeDef;
 
-/*IDR register*/
+	/*IDR register*/
 #define CRC_IDR_Pos 0U
 #define CRC_IDR_Msk (0xFFUL << CRC_IDR_Pos)
 #define CRC_IDR CRC_IDR_Msk
@@ -5486,24 +5486,24 @@ typedef struct
 /* ========================================================================= */
 /* ============                     QUADSPI                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< QUADSPI Control Register. */
-	__IOM uint32_t DCR; /*!< QUADSPI Device Configuration Register. */
-	__IM uint32_t SR; /*!< QUADSPI Status Register. */
-	__OM uint32_t FCR; /*!< QUADSPI Flag Clear Register. */
-	__IOM uint32_t DLR; /*!< QUADSPI Data Length Register. */
-	__IOM uint32_t CCR; /*!< QUADSPI Communication Configuration Register. */
-	__IOM uint32_t AR; /*!< QUADSPI Address Register. */
-	__IOM uint32_t ABR; /*!< QUADSPI Alternate Bytes Register. */
-	__IOM uint32_t DR; /*!< QUADSPI Data Register. */
-	__IOM uint32_t PSMKR; /*!< QUADSPI Polling Status Mask Register. */
-	__IOM uint32_t PSMAR; /*!< QUADSPI Polling Status Match Register. */
-	__IOM uint32_t PIR; /*!< QUADSPI Polling Interval Register. */
-	__IOM uint32_t LPTR; /*!< QUADSPI Low Power Timeout Register. */
-}STM32L4xx_QUADSPI_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< QUADSPI Control Register. */
+		__IOM uint32_t DCR; /*!< QUADSPI Device Configuration Register. */
+		__IM uint32_t SR; /*!< QUADSPI Status Register. */
+		__OM uint32_t FCR; /*!< QUADSPI Flag Clear Register. */
+		__IOM uint32_t DLR; /*!< QUADSPI Data Length Register. */
+		__IOM uint32_t CCR; /*!< QUADSPI Communication Configuration Register. */
+		__IOM uint32_t AR; /*!< QUADSPI Address Register. */
+		__IOM uint32_t ABR; /*!< QUADSPI Alternate Bytes Register. */
+		__IOM uint32_t DR; /*!< QUADSPI Data Register. */
+		__IOM uint32_t PSMKR; /*!< QUADSPI Polling Status Mask Register. */
+		__IOM uint32_t PSMAR; /*!< QUADSPI Polling Status Match Register. */
+		__IOM uint32_t PIR; /*!< QUADSPI Polling Interval Register. */
+		__IOM uint32_t LPTR; /*!< QUADSPI Low Power Timeout Register. */
+	}STM32L4xx_QUADSPI_TypeDef;
 
-/*CR register*/
+	/*CR register*/
 #define QUADSPI_CR_PRESCALER_Pos 24U
 #define QUADSPI_CR_PRESCALER_Msk (0xFFUL << QUADSPI_CR_PRESCALER_Pos)
 #define QUADSPI_CR_PRESCALER QUADSPI_CR_PRESCALER_Msk
@@ -5717,54 +5717,54 @@ typedef struct
 /* ========================================================================= */
 /* ============                       ADC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t ISR; /*!< ADC Interrupt and Status Register. */
-	__IOM uint32_t IER; /*!< ADC Interrupt Enable Register. */
-	__IOM uint32_t CR; /*!< ADC Control Register. */
-	__IOM uint32_t CFGR; /*!< ADC Configuration Register. */
-	__IOM uint32_t CFGR2; /*!< ADC Configuration Register 2. */
-	__IOM uint32_t SMPR1; /*!< ADC Sample time Register 1. */
-	__IOM uint32_t SMPR2; /*!< ADC Sample time Register 2. */
-	uint32_t RESERVED0;
-	__IOM uint32_t TR1; /*!< ADC watchdog Threshold Register 1. */
-	__IOM uint32_t TR2; /*!< ADC watchdog Threshold Register 2. */
-	__IOM uint32_t TR3;	/*!< ADC watchdog Threshold Register 3. */
-	uint32_t RESERVED1;
-	__IOM uint32_t SQR1; /*!< ADC regular Sequence Register 1. */
-	__IOM uint32_t SQR2; /*!< ADC regular Sequence Register 2. */
-	__IOM uint32_t SQR3; /*!< ADC regular Sequence Register 3. */
-	__IOM uint32_t SQR4; /*!< ADC regular Sequence Register 4. */
-	__IM uint32_t DR; /*!< ADC regular Data Register. */
-	uint32_t RESERVED2[2];
-	__IOM uint32_t JSQR; /*!< ADC Injected Sequence Register. */
-	uint32_t RESERVED3[4];
-	__IOM uint32_t OFR1; /*!< ADC Offset 1 Register. */
-	__IOM uint32_t OFR2; /*!< ADC Offset 2 Register. */
-	__IOM uint32_t OFR3; /*!< ADC Offset 3 Register. */
-	__IOM uint32_t OFR4; /*!< ADC Offset 4 Register. */
-	uint32_t RESERVED4[4];
-	__IM uint32_t JDR1; /*!< ADC Injected Channel 1 Data Register. */
-	__IM uint32_t JDR2; /*!< ADC Injected Channel 2 Data Register. */
-	__IM uint32_t JDR3; /*!< ADC Injected Channel 3 Data Register. */
-	__IM uint32_t JDR4; /*!< ADC Injected Channel 4 Data Register. */
-	uint32_t RESERVED5[4];
-	__IOM uint32_t AWD2CR; /*!< ADC Analog Watchdog 2 Configuration Register. */
-	__IOM uint32_t AWD3CR; /*!< ADC Analog Watchdog 3 Configuration Register. */
-	uint32_t RESERVED6[2];
-	__IOM uint32_t DIFSEL; /*!< ADC Differential Mode Selection Register. */
-	__IOM uint32_t CALFACT; /*!< ADC Calibration Factors. */
-}STM32L4xx_ADC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t ISR; /*!< ADC Interrupt and Status Register. */
+		__IOM uint32_t IER; /*!< ADC Interrupt Enable Register. */
+		__IOM uint32_t CR; /*!< ADC Control Register. */
+		__IOM uint32_t CFGR; /*!< ADC Configuration Register. */
+		__IOM uint32_t CFGR2; /*!< ADC Configuration Register 2. */
+		__IOM uint32_t SMPR1; /*!< ADC Sample time Register 1. */
+		__IOM uint32_t SMPR2; /*!< ADC Sample time Register 2. */
+		uint32_t RESERVED0;
+		__IOM uint32_t TR1; /*!< ADC watchdog Threshold Register 1. */
+		__IOM uint32_t TR2; /*!< ADC watchdog Threshold Register 2. */
+		__IOM uint32_t TR3;	/*!< ADC watchdog Threshold Register 3. */
+		uint32_t RESERVED1;
+		__IOM uint32_t SQR1; /*!< ADC regular Sequence Register 1. */
+		__IOM uint32_t SQR2; /*!< ADC regular Sequence Register 2. */
+		__IOM uint32_t SQR3; /*!< ADC regular Sequence Register 3. */
+		__IOM uint32_t SQR4; /*!< ADC regular Sequence Register 4. */
+		__IM uint32_t DR; /*!< ADC regular Data Register. */
+		uint32_t RESERVED2[2];
+		__IOM uint32_t JSQR; /*!< ADC Injected Sequence Register. */
+		uint32_t RESERVED3[4];
+		__IOM uint32_t OFR1; /*!< ADC Offset 1 Register. */
+		__IOM uint32_t OFR2; /*!< ADC Offset 2 Register. */
+		__IOM uint32_t OFR3; /*!< ADC Offset 3 Register. */
+		__IOM uint32_t OFR4; /*!< ADC Offset 4 Register. */
+		uint32_t RESERVED4[4];
+		__IM uint32_t JDR1; /*!< ADC Injected Channel 1 Data Register. */
+		__IM uint32_t JDR2; /*!< ADC Injected Channel 2 Data Register. */
+		__IM uint32_t JDR3; /*!< ADC Injected Channel 3 Data Register. */
+		__IM uint32_t JDR4; /*!< ADC Injected Channel 4 Data Register. */
+		uint32_t RESERVED5[4];
+		__IOM uint32_t AWD2CR; /*!< ADC Analog Watchdog 2 Configuration Register. */
+		__IOM uint32_t AWD3CR; /*!< ADC Analog Watchdog 3 Configuration Register. */
+		uint32_t RESERVED6[2];
+		__IOM uint32_t DIFSEL; /*!< ADC Differential Mode Selection Register. */
+		__IOM uint32_t CALFACT; /*!< ADC Calibration Factors. */
+	}STM32L4xx_ADC_TypeDef;
 
-typedef struct
-{
-	__IM uint32_t CSR; /*!< ADC Common Status Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t CCR; /*!< ADC Common Control Register. */
-	__IM uint32_t CDR; /*!< ADC Common Regular Data Register for dual mode. */
-}STM32L4xx_ADC_CM_TypeDef;
+	typedef struct
+	{
+		__IM uint32_t CSR; /*!< ADC Common Status Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t CCR; /*!< ADC Common Control Register. */
+		__IM uint32_t CDR; /*!< ADC Common Regular Data Register for dual mode. */
+	}STM32L4xx_ADC_CM_TypeDef;
 
-/*ISR register*/
+	/*ISR register*/
 #define ADC_ISR_JQOVF_Pos 10U
 #define ADC_ISR_JQOVF_Msk (0x1UL << ADC_ISR_JQOVF_Pos)
 #define ADC_ISR_JQOVF ADC_ISR_JQOVF_Msk
@@ -6475,31 +6475,31 @@ typedef struct
 /* ========================================================================= */
 /* ============                       DAC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< DAC Control Register. */
-	__OM uint32_t SWTRGR; /*!< DAC Software Trigger Register. */
-	__IOM uint32_t DHR12R1; /*!< DAC channel 1 12-bit Right-aligned Data Holding Register. */
-	__IOM uint32_t DHR12L1; /*!< DAC channel 1 12-bit Left-aligned Data Holding Register. */
-	__IOM uint32_t DHR8R1; /*!< DAC channel 1 8-bit Right-aligned Data Holding Register. */
-	__IOM uint32_t DHR12R2; /*!< DAC channel 2 12-bit Right-aligned Data Holding Register. */
-	__IOM uint32_t DHR12L2; /*!< DAC channel 2 12-bit Left-aligned Data Holding Register. */
-	__IOM uint32_t DHR8R2; /*!< DAC channel 2 8-bit Right-aligned Data Holding Register. */
-	__IOM uint32_t DHR12RD; /*!< DAC Dual channel 12-bit Right-aligned Data Holding Register. */
-	__IOM uint32_t DHR12LD; /*!< DAC Dual channel 12-bit Left-aligned Data Holding Register. */
-	__IOM uint32_t DHR8RD; /*!< DAC Dual channel 8-bit Right-aligned Data Holding Register. */
-	__IM uint32_t DOR1; /*!< DAC channel 1 Data Output Register. */
-	__IM uint32_t DOR2; /*!< DAC channel 2 Data Output Register. */
-	__IOM uint32_t SR; /*!< DAC Status Register. */
-	__IOM uint32_t CCR; /*!< DAC Calibration Control Register. */
-	__IOM uint32_t MCR; /*!< DAC Mode Control Register. */
-	__IOM uint32_t SHSR1; /*!< DAC channel 1 Sample and Hold Sample Register. */
-	__IOM uint32_t SHSR2; /*!< DAC channel 2 Sample and Hold Sample Register. */
-	__IOM uint32_t SHHR; /*!< DAC Sample and Hold time Register. */
-	__IOM uint32_t SHRR; /*!< DAC Sample and Hold Refresh time Register. */
-}STM32L4xx_DAC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< DAC Control Register. */
+		__OM uint32_t SWTRGR; /*!< DAC Software Trigger Register. */
+		__IOM uint32_t DHR12R1; /*!< DAC channel 1 12-bit Right-aligned Data Holding Register. */
+		__IOM uint32_t DHR12L1; /*!< DAC channel 1 12-bit Left-aligned Data Holding Register. */
+		__IOM uint32_t DHR8R1; /*!< DAC channel 1 8-bit Right-aligned Data Holding Register. */
+		__IOM uint32_t DHR12R2; /*!< DAC channel 2 12-bit Right-aligned Data Holding Register. */
+		__IOM uint32_t DHR12L2; /*!< DAC channel 2 12-bit Left-aligned Data Holding Register. */
+		__IOM uint32_t DHR8R2; /*!< DAC channel 2 8-bit Right-aligned Data Holding Register. */
+		__IOM uint32_t DHR12RD; /*!< DAC Dual channel 12-bit Right-aligned Data Holding Register. */
+		__IOM uint32_t DHR12LD; /*!< DAC Dual channel 12-bit Left-aligned Data Holding Register. */
+		__IOM uint32_t DHR8RD; /*!< DAC Dual channel 8-bit Right-aligned Data Holding Register. */
+		__IM uint32_t DOR1; /*!< DAC channel 1 Data Output Register. */
+		__IM uint32_t DOR2; /*!< DAC channel 2 Data Output Register. */
+		__IOM uint32_t SR; /*!< DAC Status Register. */
+		__IOM uint32_t CCR; /*!< DAC Calibration Control Register. */
+		__IOM uint32_t MCR; /*!< DAC Mode Control Register. */
+		__IOM uint32_t SHSR1; /*!< DAC channel 1 Sample and Hold Sample Register. */
+		__IOM uint32_t SHSR2; /*!< DAC channel 2 Sample and Hold Sample Register. */
+		__IOM uint32_t SHHR; /*!< DAC Sample and Hold time Register. */
+		__IOM uint32_t SHRR; /*!< DAC Sample and Hold Refresh time Register. */
+	}STM32L4xx_DAC_TypeDef;
 
-/*CR register*/
+	/*CR register*/
 #define DAC_CR_CEN2_Pos 30U
 #define DAC_CR_CEN2_Msk (0x1UL << DAC_CR_CEN2_Pos)
 #define DAC_CR_CEN2 DAC_CR_CEN2_Msk
@@ -6742,13 +6742,13 @@ typedef struct
 /* ========================================================================= */
 /* ============                     VREFBUF                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CSR; /*!< VERFBUF Control and Status Register. */
-	__IOM uint32_t CCR; /*!< VERFBUF Calibration Control Register. */
-}STM32L4xx_VREFBUF_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CSR; /*!< VERFBUF Control and Status Register. */
+		__IOM uint32_t CCR; /*!< VERFBUF Calibration Control Register. */
+	}STM32L4xx_VREFBUF_TypeDef;
 
-/*CSR register*/
+	/*CSR register*/
 #define VREFBUF_CSR_VRR_Pos 3U
 #define VREFBUF_CSR_VRR_Msk (0x1UL << VREFBUF_CSR_VRR_Pos)
 #define VREFBUF_CSR_VRR VREFBUF_CSR_VRR_Msk
@@ -6773,12 +6773,12 @@ typedef struct
 /* ========================================================================= */
 /* ============                       COMP                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CSR; /*!< Comparator Control and Status Register. */
-}STM32L4xx_COMP_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CSR; /*!< Comparator Control and Status Register. */
+	}STM32L4xx_COMP_TypeDef;
 
-/*CSR register.*/
+	/*CSR register.*/
 #define COMP_CSR_LOCK_Pos 31U
 #define COMP_CSR_LOCK_Msk (0x1UL << COMP_CSR_LOCK_Pos)
 #define COMP_CSR_LOCK COMP_CSR_LOCK_Msk
@@ -6869,14 +6869,14 @@ typedef struct
 /* ============                      OPAMP                      ============ */
 /* ========================================================================= */
 
-typedef struct
-{
-	__IOM uint32_t CSR; /*!< OPAMP Control/Status Register. */
-	__IOM uint32_t OTR; /*!< OPAMP Offset Trimming Register in normal mode. */
-	__IOM uint32_t LPOTR; /*!< OPAMP Offset Trimming Register in Low Power mode. */
-}STM32L4xx_OPAMP_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CSR; /*!< OPAMP Control/Status Register. */
+		__IOM uint32_t OTR; /*!< OPAMP Offset Trimming Register in normal mode. */
+		__IOM uint32_t LPOTR; /*!< OPAMP Offset Trimming Register in Low Power mode. */
+	}STM32L4xx_OPAMP_TypeDef;
 
-/*CSR register.*/
+	/*CSR register.*/
 #define OPAMP_CSR_OPA_RANGE_Pos 31U
 #define OPAMP_CSR_OPA_RANGE_Msk (0x1UL << OPAMP_CSR_OPA_RANGE_Pos)
 #define OPAMP_CSR_OPA_RANGE OPAMP_CSR_OPA_RANGE_Msk
@@ -6951,35 +6951,35 @@ typedef struct
 /* ========================================================================= */
 /* ============                      DFSDM                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CFGR1; /*!< DFSDM Configuration Register 1. */
-	__IOM uint32_t CFGR2; /*!< DFSDM Configuration Register 2. */
-	__IOM uint32_t AWSCDR; /*!< DFSDM Analog Watchdog and Short-Circuit Detector Register. */
-	__IM uint32_t WDATR; /*!< DFSDM Watchdog filter Data Register. */
-	__IOM uint32_t DATINR; /*!< DFSDM Data Input Register. */
-}STM32L4xx_DFSDM_CH_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CFGR1; /*!< DFSDM Configuration Register 1. */
+		__IOM uint32_t CFGR2; /*!< DFSDM Configuration Register 2. */
+		__IOM uint32_t AWSCDR; /*!< DFSDM Analog Watchdog and Short-Circuit Detector Register. */
+		__IM uint32_t WDATR; /*!< DFSDM Watchdog filter Data Register. */
+		__IOM uint32_t DATINR; /*!< DFSDM Data Input Register. */
+	}STM32L4xx_DFSDM_CH_TypeDef;
 
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< DFSDM filter Control Register 1. */
-	__IOM uint32_t CR2; /*!< DFSDM filter Control Register 2. */
-	__IM uint32_t ISR; /*!< DFSDM filter Interrupt and Status Register. */
-	__IOM uint32_t ICR; /*!< DFSDM filter Interrupt flag Clear Register. */
-	__IOM uint32_t JCHGR; /*!< DFSDM filter Injected Channel Group selection Register. */
-	__IOM uint32_t FCR; /*!< DFSDM Filter Control Register. */
-	__IM uint32_t JDATAR; /*!< DFSDM filter Data Register for Injected group. */
-	__IM uint32_t RDATAR; /*!< DFSDM filter Data Register for the Regular channel. */
-	__IOM uint32_t AWHTR; /*!< DFSDM filter Analog Watchdog High Threshold Register. */
-	__IOM uint32_t AWLTR; /*!< DFSDM filter Analog Watchdog Low Threshold Register. */
-	__IM uint32_t AWSR; /*!< DFSDM filter Analog Watchdog Status Register. */
-	__IOM uint32_t AWCFR; /*!< DFSDM filter Analog Watchdog Clear Flag Register. */
-	__IM uint32_t EXMAX; /*!< DFSDM filter Extremes detector Maximum Register. */
-	__IM uint32_t EXMIN; /*!< DFSDM filter Extremes detector Minimum Register. */
-	__IM uint32_t CNVTIMR; /*!< DFSDM filter Conversion Time Register. */
-}STM32L4xx_DFSDM_FLT_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< DFSDM filter Control Register 1. */
+		__IOM uint32_t CR2; /*!< DFSDM filter Control Register 2. */
+		__IM uint32_t ISR; /*!< DFSDM filter Interrupt and Status Register. */
+		__IOM uint32_t ICR; /*!< DFSDM filter Interrupt flag Clear Register. */
+		__IOM uint32_t JCHGR; /*!< DFSDM filter Injected Channel Group selection Register. */
+		__IOM uint32_t FCR; /*!< DFSDM Filter Control Register. */
+		__IM uint32_t JDATAR; /*!< DFSDM filter Data Register for Injected group. */
+		__IM uint32_t RDATAR; /*!< DFSDM filter Data Register for the Regular channel. */
+		__IOM uint32_t AWHTR; /*!< DFSDM filter Analog Watchdog High Threshold Register. */
+		__IOM uint32_t AWLTR; /*!< DFSDM filter Analog Watchdog Low Threshold Register. */
+		__IM uint32_t AWSR; /*!< DFSDM filter Analog Watchdog Status Register. */
+		__IOM uint32_t AWCFR; /*!< DFSDM filter Analog Watchdog Clear Flag Register. */
+		__IM uint32_t EXMAX; /*!< DFSDM filter Extremes detector Maximum Register. */
+		__IM uint32_t EXMIN; /*!< DFSDM filter Extremes detector Minimum Register. */
+		__IM uint32_t CNVTIMR; /*!< DFSDM filter Conversion Time Register. */
+	}STM32L4xx_DFSDM_FLT_TypeDef;
 
-/*CHyCFGR1 register.*/
+	/*CHyCFGR1 register.*/
 #define DFSDM_CH_CFGR1_DFSDMEN_Pos 31U
 #define DFSDM_CH_CFGR1_DFSDMEN_Msk (0x1UL << DFSDM_CH_CFGR1_DFSDMEN_Pos)
 #define DFSDM_CH_CFGR1_DFSDMEN DFSDM_CH_CFGR1_DFSDMEN_Msk
@@ -7333,17 +7333,17 @@ typedef struct
 /* ========================================================================= */
 /* ============                       LCD                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< LCD Control Register. */
-	__IOM uint32_t FCR; /*!< LCD Frame Control Register. */
-	__IOM uint32_t SR; /*!< LCD Status Register. */
-	__OM uint32_t CLR; /*!< LCD Clear Register. */
-	uint32_t RESERVED;
-	__IOM uint32_t RAM[16]; /*!< LCD Display Memory. */
-}STM32L4xx_LCD_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< LCD Control Register. */
+		__IOM uint32_t FCR; /*!< LCD Frame Control Register. */
+		__IOM uint32_t SR; /*!< LCD Status Register. */
+		__OM uint32_t CLR; /*!< LCD Clear Register. */
+		uint32_t RESERVED;
+		__IOM uint32_t RAM[16]; /*!< LCD Display Memory. */
+	}STM32L4xx_LCD_TypeDef;
 
-/*CR register.*/
+	/*CR register.*/
 #define LCD_CR_BUFEN_Pos 8U
 #define LCD_CR_BUFEN_Msk (0x1UL << LCD_CR_BUFEN_Pos)
 #define LCD_CR_BUFEN LCD_CR_BUFEN_Msk
@@ -7475,31 +7475,31 @@ typedef struct
 /* ========================================================================= */
 /* ============                       TSC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< TSC Control Register. */
-	__IOM uint32_t IER; /*!< TSC Interrupt Enable Register. */
-	__IOM uint32_t ICR; /*!< TSC Interrupt Clear Register. */
-	__IM uint32_t ISR; /*!< TSC Interrupt Status Register. */
-	__IM uint32_t IOHCR; /*!< TSC I/O Hysteris Control Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t IOASCR; /*!< TSC I/O Analog Switch Control Register. */
-	uint32_t RESERVED1;
-	__IOM uint32_t IOSCR; /*!< TSC I/O Sampling Control Register. */
-	uint32_t RESERVED2;
-	__IOM uint32_t IOCCR; /*!< TSC I/O Channel Control Register. */
-	uint32_t RESERVED3;
-	__IOM uint32_t IOGCSR; /*!< TSC I/O Group Control Status Register. */
-	__IM uint32_t IOG1CR; /*!< TSC I/O Group 1 Counter Register. */
-	__IM uint32_t IOG2CR; /*!< TSC I/O Group 2 Counter Register. */
-	__IM uint32_t IOG3CR; /*!< TSC I/O Group 3 Counter Register. */
-	__IM uint32_t IOG4CR; /*!< TSC I/O Group 4 Counter Register. */
-	__IM uint32_t IOG5CR; /*!< TSC I/O Group 5 Counter Register. */
-	__IM uint32_t IOG6CR; /*!< TSC I/O Group 6 Counter Register. */
-	__IM uint32_t IOG7CR; /*!< TSC I/O Group 7 Counter Register. */
-}STM32L4xx_TSC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< TSC Control Register. */
+		__IOM uint32_t IER; /*!< TSC Interrupt Enable Register. */
+		__IOM uint32_t ICR; /*!< TSC Interrupt Clear Register. */
+		__IM uint32_t ISR; /*!< TSC Interrupt Status Register. */
+		__IM uint32_t IOHCR; /*!< TSC I/O Hysteris Control Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t IOASCR; /*!< TSC I/O Analog Switch Control Register. */
+		uint32_t RESERVED1;
+		__IOM uint32_t IOSCR; /*!< TSC I/O Sampling Control Register. */
+		uint32_t RESERVED2;
+		__IOM uint32_t IOCCR; /*!< TSC I/O Channel Control Register. */
+		uint32_t RESERVED3;
+		__IOM uint32_t IOGCSR; /*!< TSC I/O Group Control Status Register. */
+		__IM uint32_t IOG1CR; /*!< TSC I/O Group 1 Counter Register. */
+		__IM uint32_t IOG2CR; /*!< TSC I/O Group 2 Counter Register. */
+		__IM uint32_t IOG3CR; /*!< TSC I/O Group 3 Counter Register. */
+		__IM uint32_t IOG4CR; /*!< TSC I/O Group 4 Counter Register. */
+		__IM uint32_t IOG5CR; /*!< TSC I/O Group 5 Counter Register. */
+		__IM uint32_t IOG6CR; /*!< TSC I/O Group 6 Counter Register. */
+		__IM uint32_t IOG7CR; /*!< TSC I/O Group 7 Counter Register. */
+	}STM32L4xx_TSC_TypeDef;
 
-/*CR register.*/
+	/*CR register.*/
 #define TSC_CR_CTPH_Pos 28U
 #define TSC_CR_CTPH_Msk (0xFUL << TSC_CR_CTPH_Pos)
 #define TSC_CR_CTPH TSC_CR_CTPH_Msk
@@ -8107,14 +8107,14 @@ typedef struct
 /* ========================================================================= */
 /* ============                       RNG                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< RNG Control Register. */
-	__IOM uint32_t SR; /*!< RNG Status Register. */
-	__IM uint32_t DR; /*!< RNG Data Register. */
-}STM32L4xx_RNG_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< RNG Control Register. */
+		__IOM uint32_t SR; /*!< RNG Status Register. */
+		__IM uint32_t DR; /*!< RNG Data Register. */
+	}STM32L4xx_RNG_TypeDef;
 
-/*CR register.*/
+	/*CR register.*/
 #define RNG_CR_CED_Pos 5U
 #define RNG_CR_CED_Msk (0x1UL << RNG_CR_CED_Pos)
 #define RNG_CR_CED RNG_CR_CED_Msk
@@ -8152,35 +8152,35 @@ typedef struct
 /* ========================================================================= */
 /* ============                       AES                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< AES Control Register. */
-	__IM uint32_t SR; /*!< AES Status Register. */
-	__IOM uint32_t DINR; /*!< AES Data Input Register. */
-	__IM uint32_t DOUTR; /*!< AES Data Output Register. */
-	__IOM uint32_t KEYR0; /*!< AES Key Register 0. */
-	__IOM uint32_t KEYR1; /*!< AES Key Register 1. */
-	__IOM uint32_t KEYR2; /*!< AES Key Register 2. */
-	__IOM uint32_t KEYR3; /*!< AES Key Register 3. */
-	__IOM uint32_t IVR0; /*!< AES Initialization Vector Register 0. */
-	__IOM uint32_t IVR1; /*!< AES Initialization Vector Register 1. */
-	__IOM uint32_t IVR2; /*!< AES Initialization Vector Register 2. */
-	__IOM uint32_t IVR3; /*!< AES Initialization Vector Register 3. */
-	__IOM uint32_t KEYR4; /*!< AES Key Register 4. */
-	__IOM uint32_t KEYR5; /*!< AES Key Register 5. */
-	__IOM uint32_t KEYR6; /*!< AES Key Register 6. */
-	__IOM uint32_t KEYR7; /*!< AES Key Register 7. */
-	__IOM uint32_t SUSP0R; /*!< AES Suspend 0 Register. */
-	__IOM uint32_t SUSP1R; /*!< AES Suspend 1 Register. */
-	__IOM uint32_t SUSP2R; /*!< AES Suspend 2 Register. */
-	__IOM uint32_t SUSP3R; /*!< AES Suspend 3 Register. */
-	__IOM uint32_t SUSP4R; /*!< AES Suspend 4 Register. */
-	__IOM uint32_t SUSP5R; /*!< AES Suspend 5 Register. */
-	__IOM uint32_t SUSP6R; /*!< AES Suspend 6 Register. */
-	__IOM uint32_t SUSP7R; /*!< AES Suspend 7 Register. */
-}STM32L4xx_AES_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< AES Control Register. */
+		__IM uint32_t SR; /*!< AES Status Register. */
+		__IOM uint32_t DINR; /*!< AES Data Input Register. */
+		__IM uint32_t DOUTR; /*!< AES Data Output Register. */
+		__IOM uint32_t KEYR0; /*!< AES Key Register 0. */
+		__IOM uint32_t KEYR1; /*!< AES Key Register 1. */
+		__IOM uint32_t KEYR2; /*!< AES Key Register 2. */
+		__IOM uint32_t KEYR3; /*!< AES Key Register 3. */
+		__IOM uint32_t IVR0; /*!< AES Initialization Vector Register 0. */
+		__IOM uint32_t IVR1; /*!< AES Initialization Vector Register 1. */
+		__IOM uint32_t IVR2; /*!< AES Initialization Vector Register 2. */
+		__IOM uint32_t IVR3; /*!< AES Initialization Vector Register 3. */
+		__IOM uint32_t KEYR4; /*!< AES Key Register 4. */
+		__IOM uint32_t KEYR5; /*!< AES Key Register 5. */
+		__IOM uint32_t KEYR6; /*!< AES Key Register 6. */
+		__IOM uint32_t KEYR7; /*!< AES Key Register 7. */
+		__IOM uint32_t SUSP0R; /*!< AES Suspend 0 Register. */
+		__IOM uint32_t SUSP1R; /*!< AES Suspend 1 Register. */
+		__IOM uint32_t SUSP2R; /*!< AES Suspend 2 Register. */
+		__IOM uint32_t SUSP3R; /*!< AES Suspend 3 Register. */
+		__IOM uint32_t SUSP4R; /*!< AES Suspend 4 Register. */
+		__IOM uint32_t SUSP5R; /*!< AES Suspend 5 Register. */
+		__IOM uint32_t SUSP6R; /*!< AES Suspend 6 Register. */
+		__IOM uint32_t SUSP7R; /*!< AES Suspend 7 Register. */
+	}STM32L4xx_AES_TypeDef;
 
-/*CR register.*/
+	/*CR register.*/
 #define AES_CR_KEYSIZE_Pos 18U
 #define AES_CR_KEYSIZE_Msk (0x1UL << AES_CR_KEYSIZE_Pos)
 #define AES_CR_KEYSIZE AES_CR_KEYSIZE_Msk
@@ -8267,37 +8267,37 @@ typedef struct
 /* ========================================================================= */
 /* ============                       TIM1                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< TIM1 Control Register 1. */
-	__IOM uint32_t CR2; /*!< TIM1 Control Register 2. */
-	__IOM uint32_t SMCR; /*!< TIM1 Slave Mode Control Register. */
-	__IOM uint32_t DIER; /*!< TIM1 DMA/Interrupt Enable Register. */
-	__IOM uint32_t SR; /*!< TIM1 Status Register. */
-	__OM uint32_t EGR; /*!< TIM1 Event Generation Register. */
-	__IOM uint32_t CCMR1; /*!< TIM1 Capture/Compare Mode Register 1. */
-	__IOM uint32_t CCMR2; /*!< TIM1 Capture/Compare Mode Register 2. */
-	__IOM uint32_t CCER; /*!< TIM1 Capture/Compare Enable Register. */
-	__IOM uint32_t CNT; /*!< TIM1 Counter. */
-	__IOM uint32_t PSC; /*!< TIM1 Prescaler. */
-	__IOM uint32_t ARR; /*!< TIM1 Auto-Reload Register. */
-	__IOM uint32_t RCR; /*!< TIM1 Repetition Counter Register. */
-	__IOM uint32_t CCR1; /*!< TIM1 Capture/Compare Register 1. */
-	__IOM uint32_t CCR2; /*!< TIM1 Capture/Compare Register 2. */
-	__IOM uint32_t CCR3; /*!< TIM1 Capture/Compare Register 3. */
-	__IOM uint32_t CCR4; /*!< TIM1 Capture/Compare Register 4. */
-	__IOM uint32_t BDTR; /*!< TIM1 Break and Dead Time Register. */
-	__IOM uint32_t DCR; /*!< TIM1 DMA Control Register. */
-	__IOM uint32_t DMAR; /*!< TIM1 DMA address for full transfer. */
-	__IOM uint32_t OR1; /*!< TIM1 Option Register 1. */
-	__IOM uint32_t CCMR3; /*!< TIM1 Capture/Compare Mode Register 3. */
-	__IOM uint32_t CCR5; /*!< TIM1 Capture/Compare Register 5. */
-	__IOM uint32_t CCR6; /*!< TIM1 Capture/Compare Register 6. */
-	__IOM uint32_t OR2; /*!< TIM1 Option Register 2. */
-	__IOM uint32_t OR3; /*!< TIM1 Option Register 3. */
-}STM32L4xx_TIM1_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< TIM1 Control Register 1. */
+		__IOM uint32_t CR2; /*!< TIM1 Control Register 2. */
+		__IOM uint32_t SMCR; /*!< TIM1 Slave Mode Control Register. */
+		__IOM uint32_t DIER; /*!< TIM1 DMA/Interrupt Enable Register. */
+		__IOM uint32_t SR; /*!< TIM1 Status Register. */
+		__OM uint32_t EGR; /*!< TIM1 Event Generation Register. */
+		__IOM uint32_t CCMR1; /*!< TIM1 Capture/Compare Mode Register 1. */
+		__IOM uint32_t CCMR2; /*!< TIM1 Capture/Compare Mode Register 2. */
+		__IOM uint32_t CCER; /*!< TIM1 Capture/Compare Enable Register. */
+		__IOM uint32_t CNT; /*!< TIM1 Counter. */
+		__IOM uint32_t PSC; /*!< TIM1 Prescaler. */
+		__IOM uint32_t ARR; /*!< TIM1 Auto-Reload Register. */
+		__IOM uint32_t RCR; /*!< TIM1 Repetition Counter Register. */
+		__IOM uint32_t CCR1; /*!< TIM1 Capture/Compare Register 1. */
+		__IOM uint32_t CCR2; /*!< TIM1 Capture/Compare Register 2. */
+		__IOM uint32_t CCR3; /*!< TIM1 Capture/Compare Register 3. */
+		__IOM uint32_t CCR4; /*!< TIM1 Capture/Compare Register 4. */
+		__IOM uint32_t BDTR; /*!< TIM1 Break and Dead Time Register. */
+		__IOM uint32_t DCR; /*!< TIM1 DMA Control Register. */
+		__IOM uint32_t DMAR; /*!< TIM1 DMA address for full transfer. */
+		__IOM uint32_t OR1; /*!< TIM1 Option Register 1. */
+		__IOM uint32_t CCMR3; /*!< TIM1 Capture/Compare Mode Register 3. */
+		__IOM uint32_t CCR5; /*!< TIM1 Capture/Compare Register 5. */
+		__IOM uint32_t CCR6; /*!< TIM1 Capture/Compare Register 6. */
+		__IOM uint32_t OR2; /*!< TIM1 Option Register 2. */
+		__IOM uint32_t OR3; /*!< TIM1 Option Register 3. */
+	}STM32L4xx_TIM1_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define TIM1_CR1_UIFREMAP_Pos 11U
 #define TIM1_CR1_UIFREMAP_Msk (0x1UL << TIM1_CR1_UIFREMAP_Pos)
 #define TIM1_CR1_UIFREMAP TIM1_CR1_UIFREMAP_Msk
@@ -9075,34 +9075,34 @@ typedef struct
 /* ========================================================================= */
 /* ============                      TIM2/3                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< TIM2/3 Control Register 1. */
-	__IOM uint32_t CR2; /*!< TIM2/3 Control Register 2. */
-	__IOM uint32_t SMCR; /*!< TIM2/3 Slave Mode Control Register. */
-	__IOM uint32_t DIER; /*!< TIM2/3 DMA/Interrupt Enable Register. */ 
-	__IOM uint32_t SR; /*!< TIM2/3 Status Register. */
-	__OM uint32_t EGR; /*!< TIM2/3 Event Generation Register. */
-	__IOM uint32_t CCMR1; /*!< TIM2/3 Capture/Compare Mode Register 1. */
-	__IOM uint32_t CCMR2; /*!< TIM2/3 Capture/Compare Mode Register 2. */
-	__IOM uint32_t CCER; /*!< TIM2/3 Capture/Compare Enable Register. */
-	__IOM uint32_t CNT; /*!< TIM2/3 Counter. */
-	__IOM uint32_t PSC; /*!< TIM2/3 Prescaler. */
-	__IOM uint32_t ARR; /*!< TIM2/3 Auto-Reload Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t CCR1; /*!< TIM2/3 Capture/Compare Register 1. */
-	__IOM uint32_t CCR2; /*!< TIM2/3 Capture/Compare Register 2. */
-	__IOM uint32_t CCR3; /*!< TIM2/3 Capture/Compare Register 3. */
-	__IOM uint32_t CCR4; /*!< TIM2/3 Capture/Compare Register 4. */
-	uint32_t RESERVED1;
-	__IOM uint32_t DCR; /*!< TIM2/3 DMA Control Register. */
-	__IOM uint32_t DMAR; /*!< TIM2/3 DMA address for full transfer. */
-	__IOM uint32_t OR1; /*!< TIM2/3 Option Register 1. */
-	uint32_t RESERVED2[3];
-	__IOM uint32_t OR2; /*!< TIM2/3 Option Register 2. */
-}STM32L4xx_TIM2_3_TypeDef;
- 
-/*CR1 register.*/
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< TIM2/3 Control Register 1. */
+		__IOM uint32_t CR2; /*!< TIM2/3 Control Register 2. */
+		__IOM uint32_t SMCR; /*!< TIM2/3 Slave Mode Control Register. */
+		__IOM uint32_t DIER; /*!< TIM2/3 DMA/Interrupt Enable Register. */
+		__IOM uint32_t SR; /*!< TIM2/3 Status Register. */
+		__OM uint32_t EGR; /*!< TIM2/3 Event Generation Register. */
+		__IOM uint32_t CCMR1; /*!< TIM2/3 Capture/Compare Mode Register 1. */
+		__IOM uint32_t CCMR2; /*!< TIM2/3 Capture/Compare Mode Register 2. */
+		__IOM uint32_t CCER; /*!< TIM2/3 Capture/Compare Enable Register. */
+		__IOM uint32_t CNT; /*!< TIM2/3 Counter. */
+		__IOM uint32_t PSC; /*!< TIM2/3 Prescaler. */
+		__IOM uint32_t ARR; /*!< TIM2/3 Auto-Reload Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t CCR1; /*!< TIM2/3 Capture/Compare Register 1. */
+		__IOM uint32_t CCR2; /*!< TIM2/3 Capture/Compare Register 2. */
+		__IOM uint32_t CCR3; /*!< TIM2/3 Capture/Compare Register 3. */
+		__IOM uint32_t CCR4; /*!< TIM2/3 Capture/Compare Register 4. */
+		uint32_t RESERVED1;
+		__IOM uint32_t DCR; /*!< TIM2/3 DMA Control Register. */
+		__IOM uint32_t DMAR; /*!< TIM2/3 DMA address for full transfer. */
+		__IOM uint32_t OR1; /*!< TIM2/3 Option Register 1. */
+		uint32_t RESERVED2[3];
+		__IOM uint32_t OR2; /*!< TIM2/3 Option Register 2. */
+	}STM32L4xx_TIM2_3_TypeDef;
+
+	/*CR1 register.*/
 #define TIM2_3_CR1_UIFREMAP_Pos 11U
 #define TIM2_3_CR1_UIFREMAP_Msk (0x1UL << TIM2_3_CR1_UIFREMAP_Pos)
 #define TIM2_3_CR1_UIFREMAP TIM2_3_CR1_UIFREMAP_Msk
@@ -9534,33 +9534,33 @@ typedef struct
 /* ========================================================================= */
 /* ============                      TIM15                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< TIM15 Control Register 1. */
-	__IOM uint32_t CR2; /*!< TIM15 Control Register 2. */
-	__IOM uint32_t SMCR; /*!< TIM15 Slave Mode Control Register. */
-	__IOM uint32_t DIER; /*!< TIM15 DMA/Interrupt Enable Register. */
-	__IOM uint32_t SR; /*!< TIM15 Status Register. */
-	__OM uint32_t EGR; /*!< TIM15 Event Generation Register. */
-	__IOM uint32_t CCMR1; /*!< TIM15 Capture/Compare Mode Register 1. */
-	uint32_t RESERVED0;
-	__IOM uint32_t CCER; /*!< TIM15 Capture/Compare Enable Register. */
-	__IOM uint32_t CNT; /*!< TIM15 Counter. */
-	__IOM uint32_t PSC; /*!< TIM15 Prescaler. */
-	__IOM uint32_t ARR; /*!< TIM15 Auto-Reload Register. */
-	__IOM uint32_t RCR; /*!< TIM15 Repetition Counter Register. */
-	__IOM uint32_t CCR1; /*!< TIM15 Capture/Compare Register 1. */
-	__IOM uint32_t CCR2; /*!< TIM15 Capture/Compare Register 1. */
-	uint32_t RESERVED1[2];
-	__IOM uint32_t BDTR; /*!< TIM15 Break and Dead Time Register. */
-	__IOM uint32_t DCR; /*!< TIM15 DMA Control Register. */
-	__IOM uint32_t DMAR; /*!< TIM15 DMA address for full transfer. */
-	__IOM uint32_t OR1; /*!< TIM15 Option Register 1. */
-	uint32_t RESERVED2[3];
-	__IOM uint32_t OR2; /*!< TIM15 Option Register 2. */
-}STM32L4xx_TIM15_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< TIM15 Control Register 1. */
+		__IOM uint32_t CR2; /*!< TIM15 Control Register 2. */
+		__IOM uint32_t SMCR; /*!< TIM15 Slave Mode Control Register. */
+		__IOM uint32_t DIER; /*!< TIM15 DMA/Interrupt Enable Register. */
+		__IOM uint32_t SR; /*!< TIM15 Status Register. */
+		__OM uint32_t EGR; /*!< TIM15 Event Generation Register. */
+		__IOM uint32_t CCMR1; /*!< TIM15 Capture/Compare Mode Register 1. */
+		uint32_t RESERVED0;
+		__IOM uint32_t CCER; /*!< TIM15 Capture/Compare Enable Register. */
+		__IOM uint32_t CNT; /*!< TIM15 Counter. */
+		__IOM uint32_t PSC; /*!< TIM15 Prescaler. */
+		__IOM uint32_t ARR; /*!< TIM15 Auto-Reload Register. */
+		__IOM uint32_t RCR; /*!< TIM15 Repetition Counter Register. */
+		__IOM uint32_t CCR1; /*!< TIM15 Capture/Compare Register 1. */
+		__IOM uint32_t CCR2; /*!< TIM15 Capture/Compare Register 1. */
+		uint32_t RESERVED1[2];
+		__IOM uint32_t BDTR; /*!< TIM15 Break and Dead Time Register. */
+		__IOM uint32_t DCR; /*!< TIM15 DMA Control Register. */
+		__IOM uint32_t DMAR; /*!< TIM15 DMA address for full transfer. */
+		__IOM uint32_t OR1; /*!< TIM15 Option Register 1. */
+		uint32_t RESERVED2[3];
+		__IOM uint32_t OR2; /*!< TIM15 Option Register 2. */
+	}STM32L4xx_TIM15_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define TIM15_CR1_UIFREMAP_Pos 11U
 #define TIM15_CR1_UIFREMAP_Msk (0x1UL << TIM15_CR1_UIFREMAP_Pos)
 #define TIM15_CR1_UIFREMAP TIM15_CR1_UIFREMAP_Msk
@@ -9926,32 +9926,32 @@ typedef struct
 /* ========================================================================= */
 /* ============                      TIM16                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< TIM16 Control Register 1. */
-	__IOM uint32_t CR2; /*!< TIM16 Control Register 2. */
-	uint32_t RESERVED0;
-	__IOM uint32_t DIER; /*!< TIM16 DMA/Interrupt Enable Register. */
-	__IOM uint32_t SR; /*!< TIM16 Status Register. */
-	__OM uint32_t EGR; /*!< TIM16 Event Generation Register. */
-	__IOM uint32_t CCMR1; /*!< TIM16 Capture/Compare Mode Register 1. */
-	uint32_t RESERVED1;
-	__IOM uint32_t CCER; /*!< TIM16 Capture/Compare Enable Register. */
-	__IOM uint32_t CNT; /*!< TIM16 Counter. */
-	__IOM uint32_t PSC; /*!< TIM16 Prescaler. */
-	__IOM uint32_t ARR; /*!< TIM16 Auto-Reload Register. */
-	__IOM uint32_t RCR; /*!< TIM16 Repetition Counter Register. */
-	__IOM uint32_t CCR1; /*!< TIM16 Capture/Compare Register 1. */
-	uint32_t RESERVED2[3];
-	__IOM uint32_t BDTR; /*!< TIM16 Break and Dead Time Register. */
-	__IOM uint32_t DCR; /*!< TIM16 DMA Control Register. */
-	__IOM uint32_t DMAR; /*!< TIM16 DMA address for full transfer. */
-	__IOM uint32_t OR1; /*!< TIM16 Option Register 1. */
-	uint32_t RESERVED3[3];
-	__IOM uint32_t OR2; /*!< TIM16 Option Register 2. */
-}STM32L4xx_TIM16_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< TIM16 Control Register 1. */
+		__IOM uint32_t CR2; /*!< TIM16 Control Register 2. */
+		uint32_t RESERVED0;
+		__IOM uint32_t DIER; /*!< TIM16 DMA/Interrupt Enable Register. */
+		__IOM uint32_t SR; /*!< TIM16 Status Register. */
+		__OM uint32_t EGR; /*!< TIM16 Event Generation Register. */
+		__IOM uint32_t CCMR1; /*!< TIM16 Capture/Compare Mode Register 1. */
+		uint32_t RESERVED1;
+		__IOM uint32_t CCER; /*!< TIM16 Capture/Compare Enable Register. */
+		__IOM uint32_t CNT; /*!< TIM16 Counter. */
+		__IOM uint32_t PSC; /*!< TIM16 Prescaler. */
+		__IOM uint32_t ARR; /*!< TIM16 Auto-Reload Register. */
+		__IOM uint32_t RCR; /*!< TIM16 Repetition Counter Register. */
+		__IOM uint32_t CCR1; /*!< TIM16 Capture/Compare Register 1. */
+		uint32_t RESERVED2[3];
+		__IOM uint32_t BDTR; /*!< TIM16 Break and Dead Time Register. */
+		__IOM uint32_t DCR; /*!< TIM16 DMA Control Register. */
+		__IOM uint32_t DMAR; /*!< TIM16 DMA address for full transfer. */
+		__IOM uint32_t OR1; /*!< TIM16 Option Register 1. */
+		uint32_t RESERVED3[3];
+		__IOM uint32_t OR2; /*!< TIM16 Option Register 2. */
+	}STM32L4xx_TIM16_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define TIM16_CR1_UIFREMAP_Pos 11U
 #define TIM16_CR1_UIFREMAP_Msk (0x1UL << TIM16_CR1_UIFREMAP_Pos)
 #define TIM16_CR1_UIFREMAP TIM16_CR1_UIFREMAP_Msk
@@ -10223,21 +10223,21 @@ typedef struct
 /* ========================================================================= */
 /* ============                      TIM6/7                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< TIM6/7 Control Register 1. */
-	__IOM uint32_t CR2; /*!< TIM6/7 Control Register 2. */
-	uint32_t RESERVED0;
-	__IOM uint32_t DIER; /*!< TIM6/7 DMA/Interrupt Enable Register. */
-	__IOM uint32_t SR; /*!< TIM6/7 Status Register. */
-	__OM uint32_t EGR; /*!< TIM6/7 Event Generation Register. */
-	uint32_t RESERVED1[3];
-	__IOM uint32_t CNT; /*!< TIM6/7 Counter. */
-	__IOM uint32_t PSC; /*!< TIM6/7 Prescaler. */
-	__IOM uint32_t ARR; /*!< TIM6/7 Auto-Reload Register. */
-}STM32L4xx_TIM6_7_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< TIM6/7 Control Register 1. */
+		__IOM uint32_t CR2; /*!< TIM6/7 Control Register 2. */
+		uint32_t RESERVED0;
+		__IOM uint32_t DIER; /*!< TIM6/7 DMA/Interrupt Enable Register. */
+		__IOM uint32_t SR; /*!< TIM6/7 Status Register. */
+		__OM uint32_t EGR; /*!< TIM6/7 Event Generation Register. */
+		uint32_t RESERVED1[3];
+		__IOM uint32_t CNT; /*!< TIM6/7 Counter. */
+		__IOM uint32_t PSC; /*!< TIM6/7 Prescaler. */
+		__IOM uint32_t ARR; /*!< TIM6/7 Auto-Reload Register. */
+	}STM32L4xx_TIM6_7_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define TIM6_7_CR1_UIFREMAP_Pos 11U
 #define TIM6_7_CR1_UIFREMAP_Msk (0x1UL << TIM6_7_CR1_UIFREMAP_Pos)
 #define TIM6_7_CR1_UIFREMAP TIM6_7_CR1_UIFREMAP_Msk
@@ -10308,28 +10308,28 @@ typedef struct
 /* ========================================================================= */
 /* ============                      LPTIM                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IM uint32_t ISR; /*!< LPTIM Interrupt and Status Register. */
-	__OM uint32_t ICR; /*!< LPTIM Interrupt Clear Register. */
-	__IOM uint32_t IER; /*!< LPTIM Interrupt Enable Register. */
-	__IOM uint32_t CFGR; /*!< LPTIM Configuration Register. */
-	__IOM uint32_t CR; /*!< LPTIM Control Register. */
-	__IOM uint32_t CMP; /*!< LPTIM Compare Register. */
-	__IOM uint32_t ARR; /*!< LPTIM Auto-Reload Register. */
-	__IM uint32_t CNT; /*!< LPTIM Counter. */
+	typedef struct
+	{
+		__IM uint32_t ISR; /*!< LPTIM Interrupt and Status Register. */
+		__OM uint32_t ICR; /*!< LPTIM Interrupt Clear Register. */
+		__IOM uint32_t IER; /*!< LPTIM Interrupt Enable Register. */
+		__IOM uint32_t CFGR; /*!< LPTIM Configuration Register. */
+		__IOM uint32_t CR; /*!< LPTIM Control Register. */
+		__IOM uint32_t CMP; /*!< LPTIM Compare Register. */
+		__IOM uint32_t ARR; /*!< LPTIM Auto-Reload Register. */
+		__IM uint32_t CNT; /*!< LPTIM Counter. */
 #if defined(STM32L431) || defined(STM32L432) || defined(STM32L433) || defined(STM32L442) || defined(STM32L443) || defined(STM32L451) || defined(STM32L452) || defined(STM32L462)
-	__IOM uint32_t OR; /*!< LPTIM Option Register. */
+		__IOM uint32_t OR; /*!< LPTIM Option Register. */
 #else
-	uint32_t RESERVED0;
+		uint32_t RESERVED0;
 #endif
 #if defined(STM32L412) || defined(STM32L422)
-	__IOM uint32_t CFGR2; /*!< LPTIM Configuration Register 2. */
-	__IOM uint32_t RCR; /*!< LPTIM Repetition Counter Register. */
+		__IOM uint32_t CFGR2; /*!< LPTIM Configuration Register 2. */
+		__IOM uint32_t RCR; /*!< LPTIM Repetition Counter Register. */
 #endif
-}STM32L4xx_LPTIM_TypeDef;
+	}STM32L4xx_LPTIM_TypeDef;
 
-/*ISR register.*/
+	/*ISR register.*/
 #define LPTIM_ISR_REPOK_Pos 8U
 #define LPTIM_ISR_REPOK_Msk (0x1UL << LPTIM_ISR_REPOK_Pos)
 #define LPTIM_ISR_REPOK LPTIM_ISR_REPOK_Msk
@@ -10556,16 +10556,16 @@ typedef struct
 /* ========================================================================= */
 /* ============                       IWDG                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__OM uint32_t KR; /*!< Key Register. */
-	__IOM uint32_t PR; /*!< Prescaler Register. */
-	__IOM uint32_t RLR; /*!< Reload Register. */
-	__IM uint32_t SR; /*!< Status Register. */
-	__IOM uint32_t WINR; /*!< Window Register. */
-}STM32L4xx_IWDG_TypeDef;
+	typedef struct
+	{
+		__OM uint32_t KR; /*!< Key Register. */
+		__IOM uint32_t PR; /*!< Prescaler Register. */
+		__IOM uint32_t RLR; /*!< Reload Register. */
+		__IM uint32_t SR; /*!< Status Register. */
+		__IOM uint32_t WINR; /*!< Window Register. */
+	}STM32L4xx_IWDG_TypeDef;
 
-/*KR register.*/
+	/*KR register.*/
 #define IWDG_KR_KEY_Pos 0U
 #define IWDG_KR_KEY_Msk (0xFFFFUL << IWDG_KR_KEY_Pos)
 #define IWDG_KR_KEY IWDG_KR_KEY_Msk
@@ -10612,14 +10612,14 @@ typedef struct
 /* ========================================================================= */
 /* ============                       WWDG                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< Control Register. */
-	__IOM uint32_t CFR; /*!< Configuration Register. */
-	__IOM uint32_t SR; /*!< Status Register. */
-}STM32L4xx_WWDG_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< Control Register. */
+		__IOM uint32_t CFR; /*!< Configuration Register. */
+		__IOM uint32_t SR; /*!< Status Register. */
+	}STM32L4xx_WWDG_TypeDef;
 
-/*CR register.*/
+	/*CR register.*/
 #define WWDG_CR_WDGA_Pos 7U
 #define WWDG_CR_WDGA_Msk (0x1UL << WWDG_CR_WDGA_Pos)
 #define WWDG_CR_WDGA WWDG_CR_WDGA_Msk
@@ -10654,34 +10654,34 @@ typedef struct
 /* ========================================================================= */
 /* ============                       RTC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t TR; /*!< RTC Time Register. */
-	__IOM uint32_t DR; /*!< RTC Date Register. */
-	__IM uint32_t SSR; /*!< RTC Sub Second Register. */
-	__IOM uint32_t ICSR; /*!< RTC Initialization Control and Status Register. */
-	__IOM uint32_t PRER; /*!< RTC Prescaler Register. */
-	__IOM uint32_t WUTR; /*!< RTC Wakeup Timer Register. */
-	__IOM uint32_t CR; /*!< RTC Control Register. */
-	uint32_t RESERVED0[2];
-	__OM uint32_t WPR; /*!< RTC Write Protection Register. */
-	__IOM uint32_t CALR; /*!< RTC Calibration Register. */
-	__OM uint32_t SHIFTR; /*!< RTC Shift control Register. */
-	__IM uint32_t TSTR; /*!< RTC Timestamp Time Register. */
-	__IM uint32_t TSDR; /*!< RTC Timestamp Date Register. */
-	__IM uint32_t TSSSR; /*!< RTC Timestamp Sub Second Register. */
-	uint32_t RESERVED1;
-	__IOM uint32_t ALRMAR; /*!< RTC Alarm A Register. */
-	__IOM uint32_t ALRMASSR; /*!< RTC Alarm A Sub Second Register. */
-	__IOM uint32_t ALRMBR; /*!< RTC Alarm B Register. */
-	__IOM uint32_t ALRMBSSR; /*!< RTC Alarm B Sub Second Register. */
-	__IM uint32_t SR; /*!< RTC Status Register. */
-	__IM uint32_t MISR; /*!< RTC Masked Interrupt Status Register. */
-	uint32_t RESERVED2;
-	__OM uint32_t SCR; /*!< RTC Status Clear Register. */
-}STM32L4xx_RTC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t TR; /*!< RTC Time Register. */
+		__IOM uint32_t DR; /*!< RTC Date Register. */
+		__IM uint32_t SSR; /*!< RTC Sub Second Register. */
+		__IOM uint32_t ICSR; /*!< RTC Initialization Control and Status Register. */
+		__IOM uint32_t PRER; /*!< RTC Prescaler Register. */
+		__IOM uint32_t WUTR; /*!< RTC Wakeup Timer Register. */
+		__IOM uint32_t CR; /*!< RTC Control Register. */
+		uint32_t RESERVED0[2];
+		__OM uint32_t WPR; /*!< RTC Write Protection Register. */
+		__IOM uint32_t CALR; /*!< RTC Calibration Register. */
+		__OM uint32_t SHIFTR; /*!< RTC Shift control Register. */
+		__IM uint32_t TSTR; /*!< RTC Timestamp Time Register. */
+		__IM uint32_t TSDR; /*!< RTC Timestamp Date Register. */
+		__IM uint32_t TSSSR; /*!< RTC Timestamp Sub Second Register. */
+		uint32_t RESERVED1;
+		__IOM uint32_t ALRMAR; /*!< RTC Alarm A Register. */
+		__IOM uint32_t ALRMASSR; /*!< RTC Alarm A Sub Second Register. */
+		__IOM uint32_t ALRMBR; /*!< RTC Alarm B Register. */
+		__IOM uint32_t ALRMBSSR; /*!< RTC Alarm B Sub Second Register. */
+		__IM uint32_t SR; /*!< RTC Status Register. */
+		__IM uint32_t MISR; /*!< RTC Masked Interrupt Status Register. */
+		uint32_t RESERVED2;
+		__OM uint32_t SCR; /*!< RTC Status Clear Register. */
+	}STM32L4xx_RTC_TypeDef;
 
-/*TR register.*/
+	/*TR register.*/
 #define RTC_TR_PM_Pos 22U
 #define RTC_TR_PM_Msk (0x1UL << RTC_TR_PM_Pos)
 #define RTC_TR_PM RTC_TR_PM_Msk
@@ -11197,54 +11197,54 @@ typedef struct
 /* ========================================================================= */
 /* ============                      TAMP                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< TAMP Control Register 1. */
-	__IOM uint32_t CR2; /*!< TAMP Control Register 2. */
-	uint32_t RESERVED0;
-	__IOM uint32_t FLTCR; /*!< TAMP Filter Control Register. */
-	uint32_t RESERVED1[7];
-	__IOM uint32_t IER; /*!< TAMP Interrupt Enable Register. */
-	__IM uint32_t SR; /*!< TAMP Status Register. */
-	__IM uint32_t MISR; /*!< TAMP Masked Interrupt Status Register. */
-	uint32_t RESERVED2;
-	__OM uint32_t SCR; /*!< TAMP Status Clear Register. */
-	uint32_t RESERVED3[192U];
-	__IOM uint32_t BKP0R; /*!< TAMP Backup 0 Register. */
-	__IOM uint32_t BKP1R; /*!< TAMP Backup 1 Register. */
-	__IOM uint32_t BKP2R; /*!< TAMP Backup 2 Register. */
-	__IOM uint32_t BKP3R; /*!< TAMP Backup 3 Register. */
-	__IOM uint32_t BKP4R; /*!< TAMP Backup 4 Register. */
-	__IOM uint32_t BKP5R; /*!< TAMP Backup 5 Register. */
-	__IOM uint32_t BKP6R; /*!< TAMP Backup 6 Register. */
-	__IOM uint32_t BKP7R; /*!< TAMP Backup 7 Register. */
-	__IOM uint32_t BKP8R; /*!< TAMP Backup 8 Register. */
-	__IOM uint32_t BKP9R; /*!< TAMP Backup 9 Register. */
-	__IOM uint32_t BKP10R; /*!< TAMP Backup 10 Register. */
-	__IOM uint32_t BKP11R; /*!< TAMP Backup 11 Register. */
-	__IOM uint32_t BKP12R; /*!< TAMP Backup 12 Register. */
-	__IOM uint32_t BKP13R; /*!< TAMP Backup 13 Register. */
-	__IOM uint32_t BKP14R; /*!< TAMP Backup 14 Register. */
-	__IOM uint32_t BKP15R; /*!< TAMP Backup 15 Register. */
-	__IOM uint32_t BKP16R; /*!< TAMP Backup 16 Register. */
-	__IOM uint32_t BKP17R; /*!< TAMP Backup 17 Register. */
-	__IOM uint32_t BKP18R; /*!< TAMP Backup 18 Register. */
-	__IOM uint32_t BKP19R; /*!< TAMP Backup 19 Register. */
-	__IOM uint32_t BKP20R; /*!< TAMP Backup 20 Register. */
-	__IOM uint32_t BKP21R; /*!< TAMP Backup 21 Register. */
-	__IOM uint32_t BKP22R; /*!< TAMP Backup 22 Register. */
-	__IOM uint32_t BKP23R; /*!< TAMP Backup 23 Register. */
-	__IOM uint32_t BKP24R; /*!< TAMP Backup 24 Register. */
-	__IOM uint32_t BKP25R; /*!< TAMP Backup 25 Register. */
-	__IOM uint32_t BKP26R; /*!< TAMP Backup 26 Register. */
-	__IOM uint32_t BKP27R; /*!< TAMP Backup 27 Register. */
-	__IOM uint32_t BKP28R; /*!< TAMP Backup 28 Register. */
-	__IOM uint32_t BKP29R; /*!< TAMP Backup 29 Register. */
-	__IOM uint32_t BKP30R; /*!< TAMP Backup 30 Register. */
-	__IOM uint32_t BKP31R; /*!< TAMP Backup 31 Register. */	
-}STM32L4xx_TAMP_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< TAMP Control Register 1. */
+		__IOM uint32_t CR2; /*!< TAMP Control Register 2. */
+		uint32_t RESERVED0;
+		__IOM uint32_t FLTCR; /*!< TAMP Filter Control Register. */
+		uint32_t RESERVED1[7];
+		__IOM uint32_t IER; /*!< TAMP Interrupt Enable Register. */
+		__IM uint32_t SR; /*!< TAMP Status Register. */
+		__IM uint32_t MISR; /*!< TAMP Masked Interrupt Status Register. */
+		uint32_t RESERVED2;
+		__OM uint32_t SCR; /*!< TAMP Status Clear Register. */
+		uint32_t RESERVED3[192U];
+		__IOM uint32_t BKP0R; /*!< TAMP Backup 0 Register. */
+		__IOM uint32_t BKP1R; /*!< TAMP Backup 1 Register. */
+		__IOM uint32_t BKP2R; /*!< TAMP Backup 2 Register. */
+		__IOM uint32_t BKP3R; /*!< TAMP Backup 3 Register. */
+		__IOM uint32_t BKP4R; /*!< TAMP Backup 4 Register. */
+		__IOM uint32_t BKP5R; /*!< TAMP Backup 5 Register. */
+		__IOM uint32_t BKP6R; /*!< TAMP Backup 6 Register. */
+		__IOM uint32_t BKP7R; /*!< TAMP Backup 7 Register. */
+		__IOM uint32_t BKP8R; /*!< TAMP Backup 8 Register. */
+		__IOM uint32_t BKP9R; /*!< TAMP Backup 9 Register. */
+		__IOM uint32_t BKP10R; /*!< TAMP Backup 10 Register. */
+		__IOM uint32_t BKP11R; /*!< TAMP Backup 11 Register. */
+		__IOM uint32_t BKP12R; /*!< TAMP Backup 12 Register. */
+		__IOM uint32_t BKP13R; /*!< TAMP Backup 13 Register. */
+		__IOM uint32_t BKP14R; /*!< TAMP Backup 14 Register. */
+		__IOM uint32_t BKP15R; /*!< TAMP Backup 15 Register. */
+		__IOM uint32_t BKP16R; /*!< TAMP Backup 16 Register. */
+		__IOM uint32_t BKP17R; /*!< TAMP Backup 17 Register. */
+		__IOM uint32_t BKP18R; /*!< TAMP Backup 18 Register. */
+		__IOM uint32_t BKP19R; /*!< TAMP Backup 19 Register. */
+		__IOM uint32_t BKP20R; /*!< TAMP Backup 20 Register. */
+		__IOM uint32_t BKP21R; /*!< TAMP Backup 21 Register. */
+		__IOM uint32_t BKP22R; /*!< TAMP Backup 22 Register. */
+		__IOM uint32_t BKP23R; /*!< TAMP Backup 23 Register. */
+		__IOM uint32_t BKP24R; /*!< TAMP Backup 24 Register. */
+		__IOM uint32_t BKP25R; /*!< TAMP Backup 25 Register. */
+		__IOM uint32_t BKP26R; /*!< TAMP Backup 26 Register. */
+		__IOM uint32_t BKP27R; /*!< TAMP Backup 27 Register. */
+		__IOM uint32_t BKP28R; /*!< TAMP Backup 28 Register. */
+		__IOM uint32_t BKP29R; /*!< TAMP Backup 29 Register. */
+		__IOM uint32_t BKP30R; /*!< TAMP Backup 30 Register. */
+		__IOM uint32_t BKP31R; /*!< TAMP Backup 31 Register. */
+	}STM32L4xx_TAMP_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define TAMP_CR1_TAMP2E_Pos 1U
 #define TAMP_CR1_TAMP2E_Msk (0x1UL << TAMP_CR1_TAMP2E_Pos)
 #define TAMP_CR1_TAMP2E TAMP_CR1_TAMP2E_Msk
@@ -11339,63 +11339,63 @@ typedef struct
 /* ========================================================================= */
 /* ============                       RTC                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t TR; /*!< RTC Time Register. */
-	__IOM uint32_t DR; /*!< RTC Date Register. */
-	__IOM uint32_t CR; /*!< RTC Control Register. */
-	__IOM uint32_t ISR; /*!< RTC Interrupt and Status Register. */
-	__IOM uint32_t PRER; /*!< RTC Prescaler Register. */
-	__IOM uint32_t WUTR; /*!< RTC Wakeup Timer Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t ALRMAR; /*!< RTC Alarm A Register. */
-	__IOM uint32_t ALRMBR; /*!< RTC Alarm B Register. */
-	__OM uint32_t WPR; /*!< RTC Write Protection Register. */
-	__IM uint32_t SSR; /*!< RTC Sub Second Register. */
-	__OM uint32_t SHIFTR; /*!< RTC Shift control Register. */
-	__IM uint32_t TSTR; /*!< RTC Timestamp Time Register. */
-	__IM uint32_t TSDR; /*!< RTC Timestamp Date Register. */
-	__IM uint32_t TSSSR; /*!< RTC Timestamp Sub Second Register. */
-	__IOM uint32_t CALR; /*!< RTC Calibration Register. */
-	__IOM uint32_t TAMPCR; /*!< RTC Tamper Configuration Register. */
-	__IOM uint32_t ALRMASSR; /*!< RTC Alarm A Sub Second Register. */
-	__IOM uint32_t ALRMBSSR; /*!< RTC Alarm B Sub Second Register. */
-	__IOM uint32_t OR; /*!< RTC Option Register. */
-	__IOM uint32_t BKP0R; /*!< RTC Backup 0 Register. */
-	__IOM uint32_t BKP1R; /*!< RTC Backup 1 Register. */
-	__IOM uint32_t BKP2R; /*!< RTC Backup 2 Register. */
-	__IOM uint32_t BKP3R; /*!< RTC Backup 3 Register. */
-	__IOM uint32_t BKP4R; /*!< RTC Backup 4 Register. */
-	__IOM uint32_t BKP5R; /*!< RTC Backup 5 Register. */
-	__IOM uint32_t BKP6R; /*!< RTC Backup 6 Register. */
-	__IOM uint32_t BKP7R; /*!< RTC Backup 7 Register. */
-	__IOM uint32_t BKP8R; /*!< RTC Backup 8 Register. */
-	__IOM uint32_t BKP9R; /*!< RTC Backup 9 Register. */
-	__IOM uint32_t BKP10R; /*!< RTC Backup 10 Register. */
-	__IOM uint32_t BKP11R; /*!< RTC Backup 11 Register. */
-	__IOM uint32_t BKP12R; /*!< RTC Backup 12 Register. */
-	__IOM uint32_t BKP13R; /*!< RTC Backup 13 Register. */
-	__IOM uint32_t BKP14R; /*!< RTC Backup 14 Register. */
-	__IOM uint32_t BKP15R; /*!< RTC Backup 15 Register. */
-	__IOM uint32_t BKP16R; /*!< RTC Backup 16 Register. */
-	__IOM uint32_t BKP17R; /*!< RTC Backup 17 Register. */
-	__IOM uint32_t BKP18R; /*!< RTC Backup 18 Register. */
-	__IOM uint32_t BKP19R; /*!< RTC Backup 19 Register. */
-	__IOM uint32_t BKP20R; /*!< RTC Backup 20 Register. */
-	__IOM uint32_t BKP21R; /*!< RTC Backup 21 Register. */
-	__IOM uint32_t BKP22R; /*!< RTC Backup 22 Register. */
-	__IOM uint32_t BKP23R; /*!< RTC Backup 23 Register. */
-	__IOM uint32_t BKP24R; /*!< RTC Backup 24 Register. */
-	__IOM uint32_t BKP25R; /*!< RTC Backup 25 Register. */
-	__IOM uint32_t BKP26R; /*!< RTC Backup 26 Register. */
-	__IOM uint32_t BKP27R; /*!< RTC Backup 27 Register. */
-	__IOM uint32_t BKP28R; /*!< RTC Backup 28 Register. */
-	__IOM uint32_t BKP29R; /*!< RTC Backup 29 Register. */
-	__IOM uint32_t BKP30R; /*!< RTC Backup 30 Register. */
-	__IOM uint32_t BKP31R; /*!< RTC Backup 31 Register. */
-}STM32L4xx_RTC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t TR; /*!< RTC Time Register. */
+		__IOM uint32_t DR; /*!< RTC Date Register. */
+		__IOM uint32_t CR; /*!< RTC Control Register. */
+		__IOM uint32_t ISR; /*!< RTC Interrupt and Status Register. */
+		__IOM uint32_t PRER; /*!< RTC Prescaler Register. */
+		__IOM uint32_t WUTR; /*!< RTC Wakeup Timer Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t ALRMAR; /*!< RTC Alarm A Register. */
+		__IOM uint32_t ALRMBR; /*!< RTC Alarm B Register. */
+		__OM uint32_t WPR; /*!< RTC Write Protection Register. */
+		__IM uint32_t SSR; /*!< RTC Sub Second Register. */
+		__OM uint32_t SHIFTR; /*!< RTC Shift control Register. */
+		__IM uint32_t TSTR; /*!< RTC Timestamp Time Register. */
+		__IM uint32_t TSDR; /*!< RTC Timestamp Date Register. */
+		__IM uint32_t TSSSR; /*!< RTC Timestamp Sub Second Register. */
+		__IOM uint32_t CALR; /*!< RTC Calibration Register. */
+		__IOM uint32_t TAMPCR; /*!< RTC Tamper Configuration Register. */
+		__IOM uint32_t ALRMASSR; /*!< RTC Alarm A Sub Second Register. */
+		__IOM uint32_t ALRMBSSR; /*!< RTC Alarm B Sub Second Register. */
+		__IOM uint32_t OR; /*!< RTC Option Register. */
+		__IOM uint32_t BKP0R; /*!< RTC Backup 0 Register. */
+		__IOM uint32_t BKP1R; /*!< RTC Backup 1 Register. */
+		__IOM uint32_t BKP2R; /*!< RTC Backup 2 Register. */
+		__IOM uint32_t BKP3R; /*!< RTC Backup 3 Register. */
+		__IOM uint32_t BKP4R; /*!< RTC Backup 4 Register. */
+		__IOM uint32_t BKP5R; /*!< RTC Backup 5 Register. */
+		__IOM uint32_t BKP6R; /*!< RTC Backup 6 Register. */
+		__IOM uint32_t BKP7R; /*!< RTC Backup 7 Register. */
+		__IOM uint32_t BKP8R; /*!< RTC Backup 8 Register. */
+		__IOM uint32_t BKP9R; /*!< RTC Backup 9 Register. */
+		__IOM uint32_t BKP10R; /*!< RTC Backup 10 Register. */
+		__IOM uint32_t BKP11R; /*!< RTC Backup 11 Register. */
+		__IOM uint32_t BKP12R; /*!< RTC Backup 12 Register. */
+		__IOM uint32_t BKP13R; /*!< RTC Backup 13 Register. */
+		__IOM uint32_t BKP14R; /*!< RTC Backup 14 Register. */
+		__IOM uint32_t BKP15R; /*!< RTC Backup 15 Register. */
+		__IOM uint32_t BKP16R; /*!< RTC Backup 16 Register. */
+		__IOM uint32_t BKP17R; /*!< RTC Backup 17 Register. */
+		__IOM uint32_t BKP18R; /*!< RTC Backup 18 Register. */
+		__IOM uint32_t BKP19R; /*!< RTC Backup 19 Register. */
+		__IOM uint32_t BKP20R; /*!< RTC Backup 20 Register. */
+		__IOM uint32_t BKP21R; /*!< RTC Backup 21 Register. */
+		__IOM uint32_t BKP22R; /*!< RTC Backup 22 Register. */
+		__IOM uint32_t BKP23R; /*!< RTC Backup 23 Register. */
+		__IOM uint32_t BKP24R; /*!< RTC Backup 24 Register. */
+		__IOM uint32_t BKP25R; /*!< RTC Backup 25 Register. */
+		__IOM uint32_t BKP26R; /*!< RTC Backup 26 Register. */
+		__IOM uint32_t BKP27R; /*!< RTC Backup 27 Register. */
+		__IOM uint32_t BKP28R; /*!< RTC Backup 28 Register. */
+		__IOM uint32_t BKP29R; /*!< RTC Backup 29 Register. */
+		__IOM uint32_t BKP30R; /*!< RTC Backup 30 Register. */
+		__IOM uint32_t BKP31R; /*!< RTC Backup 31 Register. */
+	}STM32L4xx_RTC_TypeDef;
 
-/*TR register.*/
+	/*TR register.*/
 #define RTC_TR_PM_Pos 22U
 #define RTC_TR_PM_Msk (0x1UL << RTC_TR_PM_Pos)
 #define RTC_TR_PM RTC_TR_PM_Msk
@@ -11902,22 +11902,22 @@ typedef struct
 /* ========================================================================= */
 /* ============                       I2C                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< I2C Control Register 1. */
-	__IOM uint32_t CR2; /*!< I2C Control Register 2. */
-	__IOM uint32_t OAR1; /*!< I2C Own Address 1 Register. */
-	__IOM uint32_t OAR2; /*!< I2C Own Address 2 Register. */
-	__IOM uint32_t TIMINGR; /*!< I2C Timing Register. */
-	__IOM uint32_t TIMEOUTR; /*!< I2C Timeout Register. */
-	__IOM uint32_t ISR; /*!< I2C Interrupt and Status Register. */
-	__OM uint32_t ICR; /*!< I2C Interrupt Clear Register. */
-	__IM uint32_t PECR; /*!< I2C Packet Error Checking Register. */
-	__IM uint32_t RXDR; /*!< I2C Receive Data Register. */
-	__IOM uint32_t TXDR; /*!< I2C Transmit Data Register. */
-}STM32L4xx_I2C_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< I2C Control Register 1. */
+		__IOM uint32_t CR2; /*!< I2C Control Register 2. */
+		__IOM uint32_t OAR1; /*!< I2C Own Address 1 Register. */
+		__IOM uint32_t OAR2; /*!< I2C Own Address 2 Register. */
+		__IOM uint32_t TIMINGR; /*!< I2C Timing Register. */
+		__IOM uint32_t TIMEOUTR; /*!< I2C Timeout Register. */
+		__IOM uint32_t ISR; /*!< I2C Interrupt and Status Register. */
+		__OM uint32_t ICR; /*!< I2C Interrupt Clear Register. */
+		__IM uint32_t PECR; /*!< I2C Packet Error Checking Register. */
+		__IM uint32_t RXDR; /*!< I2C Receive Data Register. */
+		__IOM uint32_t TXDR; /*!< I2C Transmit Data Register. */
+	}STM32L4xx_I2C_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define I2C_CR1_PECEN_Pos 23U
 #define I2C_CR1_PECEN_Msk (0x1UL << I2C_CR1_PECEN_Pos)
 #define I2C_CR1_PECEN I2C_CR1_PECEN_Msk
@@ -12235,22 +12235,22 @@ typedef struct
 /* ========================================================================= */
 /* ============                      USART                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< USART Control Register 1. */
-	__IOM uint32_t CR2; /*!< USART Control Register 2. */
-	__IOM uint32_t CR3; /*!< USART Control Register 3. */
-	__IOM uint32_t BRR; /*!< USART Baud Rate Register. */
-	__IOM uint32_t GTPR; /*!< USART Guard Time and Prescaler Register. */
-	__IOM uint32_t RTOR; /*!< USART Receiver Timeout Register. */
-	__OM uint32_t RQR; /*!< USART Request Register. */
-	__IM uint32_t ISR; /*!< USART Interrupt and Status Register. */
-	__IOM uint32_t ICR; /*!< USART Interrupt flag Clear Register. */
-	__IM uint32_t RDR; /*!< USART Receive Data Register. */
-	__IOM uint32_t TDR; /*!< USART Transmit Data Register. */
-}STM32L4xx_USART_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< USART Control Register 1. */
+		__IOM uint32_t CR2; /*!< USART Control Register 2. */
+		__IOM uint32_t CR3; /*!< USART Control Register 3. */
+		__IOM uint32_t BRR; /*!< USART Baud Rate Register. */
+		__IOM uint32_t GTPR; /*!< USART Guard Time and Prescaler Register. */
+		__IOM uint32_t RTOR; /*!< USART Receiver Timeout Register. */
+		__OM uint32_t RQR; /*!< USART Request Register. */
+		__IM uint32_t ISR; /*!< USART Interrupt and Status Register. */
+		__IOM uint32_t ICR; /*!< USART Interrupt flag Clear Register. */
+		__IM uint32_t RDR; /*!< USART Receive Data Register. */
+		__IOM uint32_t TDR; /*!< USART Transmit Data Register. */
+	}STM32L4xx_USART_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define USART_CR1_EOBIE_Pos 27U
 #define USART_CR1_EOBIE_Msk (0x1UL << USART_CR1_EOBIE_Pos)
 #define USART_CR1_EOBIE USART_CR1_EOBIE_Msk
@@ -12712,21 +12712,21 @@ typedef struct
 /* ========================================================================= */
 /* ============                      LPUART                     ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< LPUART Control Register 1. */
-	__IOM uint32_t CR2; /*!< LPUART Control Register 2. */
-	__IOM uint32_t CR3; /*!< LPUART Control Register 3. */
-	__IOM uint32_t BRR; /*!< LPUART Baud Rate Register. */
-	uint32_t RESERVED0[2];
-	__OM uint32_t RQR; /*!< LPUART Request Register. */
-	__IM uint32_t ISR; /*!< LPUART Interrupt and Status Register. */
-	__IOM uint32_t ICR; /*!< LPUART Interrupt flag Clear Register. */
-	__IM uint32_t RDR; /*!< LPUART Receive Data Register. */
-	__IOM uint32_t TDR; /*!< LPUART Transmit Data Register. */
-}STM32L4xx_LPUART_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< LPUART Control Register 1. */
+		__IOM uint32_t CR2; /*!< LPUART Control Register 2. */
+		__IOM uint32_t CR3; /*!< LPUART Control Register 3. */
+		__IOM uint32_t BRR; /*!< LPUART Baud Rate Register. */
+		uint32_t RESERVED0[2];
+		__OM uint32_t RQR; /*!< LPUART Request Register. */
+		__IM uint32_t ISR; /*!< LPUART Interrupt and Status Register. */
+		__IOM uint32_t ICR; /*!< LPUART Interrupt flag Clear Register. */
+		__IM uint32_t RDR; /*!< LPUART Receive Data Register. */
+		__IOM uint32_t TDR; /*!< LPUART Transmit Data Register. */
+	}STM32L4xx_LPUART_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define LPUART_CR1_DEAT_Pos 21U
 #define LPUART_CR1_DEAT_Msk (0x1FUL << LPUART_CR1_DEAT_Pos)
 #define LPUART_CR1_DEAT LPUART_CR1_DEAT_Msk
@@ -13052,18 +13052,18 @@ typedef struct
 /* ========================================================================= */
 /* ============                       SPI                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR1; /*!< SPI Control Register 1. */
-	__IOM uint32_t CR2; /*!< SPI Control Register 2. */
-	__IOM uint32_t SR; /*!< SPI Status Register. */
-	__IOM uint32_t DR; /*!< SPI Data Register. */
-	__IOM uint32_t CRCPR; /*!< SPI CRC Polynomial Register. */
-	__IM uint32_t RXCRCR; /*!< SPI Rx CRC Register. */
-	__IM uint32_t TXCRCR; /*!< SPI Tx CRC Register. */
-}STM32L4xx_SPI_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR1; /*!< SPI Control Register 1. */
+		__IOM uint32_t CR2; /*!< SPI Control Register 2. */
+		__IOM uint32_t SR; /*!< SPI Status Register. */
+		__IOM uint32_t DR; /*!< SPI Data Register. */
+		__IOM uint32_t CRCPR; /*!< SPI CRC Polynomial Register. */
+		__IM uint32_t RXCRCR; /*!< SPI Rx CRC Register. */
+		__IM uint32_t TXCRCR; /*!< SPI Tx CRC Register. */
+	}STM32L4xx_SPI_TypeDef;
 
-/*CR1 register.*/
+	/*CR1 register.*/
 #define SPI_CR1_BIDIMODE_Pos 15U
 #define SPI_CR1_BIDIMODE_Msk (0x1UL << SPI_CR1_BIDIMODE_Pos)
 #define SPI_CR1_BIDIMODE SPI_CR1_BIDIMODE_Msk
@@ -13259,28 +13259,28 @@ typedef struct
 /* ========================================================================= */
 /* ============                       SAI                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	uint32_t RESERVED0;
-	__IOM uint32_t ACR1; /*!< SAI Configuration Register 1. */
-	__IOM uint32_t ACR2; /*!< SAI Configuration Register 2. */
-	__IOM uint32_t AFRCR; /*!< SAI Frame Configuration Register. */
-	__IOM uint32_t ASLOTR; /*!< SAI Slot Register. */
-	__IOM uint32_t AIM; /*!< SAI Interrupt Mask register. */
-	__IM uint32_t ASR; /*!< SAI Status Register. */
-	__OM uint32_t ACLRFR; /*!< SAI Clear Flag Register. */
-	__IOM uint32_t ADR; /*!< SAI Data Register. */
-	__IOM uint32_t BCR1; /*!< SAI Configuration Register 1. */
-	__IOM uint32_t BCR2; /*!< SAI Configuration Register 2. */
-	__IOM uint32_t BFRCR; /*!< SAI Frame Configuration Register. */
-	__IOM uint32_t BSLOTR; /*!< SAI Slot Register. */
-	__IOM uint32_t BIM; /*!< SAI Interrupt Mask register. */
-	__IM uint32_t BSR; /*!< SAI Status Register. */
-	__OM uint32_t BCLRFR; /*!< SAI Clear Flag Register. */
-	__IOM uint32_t BDR; /*!< SAI Data Register. */
-}STM32L4xx_SAI_TypeDef;
+	typedef struct
+	{
+		uint32_t RESERVED0;
+		__IOM uint32_t ACR1; /*!< SAI Configuration Register 1. */
+		__IOM uint32_t ACR2; /*!< SAI Configuration Register 2. */
+		__IOM uint32_t AFRCR; /*!< SAI Frame Configuration Register. */
+		__IOM uint32_t ASLOTR; /*!< SAI Slot Register. */
+		__IOM uint32_t AIM; /*!< SAI Interrupt Mask register. */
+		__IM uint32_t ASR; /*!< SAI Status Register. */
+		__OM uint32_t ACLRFR; /*!< SAI Clear Flag Register. */
+		__IOM uint32_t ADR; /*!< SAI Data Register. */
+		__IOM uint32_t BCR1; /*!< SAI Configuration Register 1. */
+		__IOM uint32_t BCR2; /*!< SAI Configuration Register 2. */
+		__IOM uint32_t BFRCR; /*!< SAI Frame Configuration Register. */
+		__IOM uint32_t BSLOTR; /*!< SAI Slot Register. */
+		__IOM uint32_t BIM; /*!< SAI Interrupt Mask register. */
+		__IM uint32_t BSR; /*!< SAI Status Register. */
+		__OM uint32_t BCLRFR; /*!< SAI Clear Flag Register. */
+		__IOM uint32_t BDR; /*!< SAI Data Register. */
+	}STM32L4xx_SAI_TypeDef;
 
-/*ACR1 register.*/
+	/*ACR1 register.*/
 #define SAI_ACR1_MCKDIV_Pos 20U
 #define SAI_ACR1_MCKDIV_Msk (0xFUL << SAI_ACR1_MCKDIV_Pos)
 #define SAI_ACR1_MCKDIV SAI_ACR1_MCKDIV_Msk
@@ -13745,21 +13745,21 @@ typedef struct
 /* ========================================================================= */
 /* ============                      SWPMI                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CR; /*!< SWPMI Configuration/Control Register. */
-	__IOM uint32_t BRR; /*!< SWPMI BitRate Register. */
-	uint32_t RESERVED0; 
-	__IM uint32_t ISR; /*!< SWPMI Interrupt and Status Register. */
-	__IOM uint32_t ICR; /*!< SWPMI Interrupt flag Clear Register. */
-	__IOM uint32_t IER; /*!< SWPMI Interrupt Enable Register. */
-	__IM uint32_t RFL; /*!< SWPMI Receive Frame Length register. */
-	__OM uint32_t TDR; /*!< SWPMI Transmit Data Register. */
-	__IM uint32_t RDR; /*!< SWPMI Receive Data Register. */
-	__IOM uint32_t OR; /*!< SWPMI Option Register. */
-}STM32L4xx_SWPMI_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CR; /*!< SWPMI Configuration/Control Register. */
+		__IOM uint32_t BRR; /*!< SWPMI BitRate Register. */
+		uint32_t RESERVED0;
+		__IM uint32_t ISR; /*!< SWPMI Interrupt and Status Register. */
+		__IOM uint32_t ICR; /*!< SWPMI Interrupt flag Clear Register. */
+		__IOM uint32_t IER; /*!< SWPMI Interrupt Enable Register. */
+		__IM uint32_t RFL; /*!< SWPMI Receive Frame Length register. */
+		__OM uint32_t TDR; /*!< SWPMI Transmit Data Register. */
+		__IM uint32_t RDR; /*!< SWPMI Receive Data Register. */
+		__IOM uint32_t OR; /*!< SWPMI Option Register. */
+	}STM32L4xx_SWPMI_TypeDef;
 
-/*CR register.*/
+	/*CR register.*/
 #define SWPMI_CR_DEACT_Pos 10U
 #define SWPMI_CR_DEACT_Msk (0x1UL << SWPMI_CR_DEACT_Pos)
 #define SWPMI_CR_DEACT SWPMI_CR_DEACT_Msk
@@ -13923,31 +13923,31 @@ typedef struct
 /* ========================================================================= */
 /* ============                      SDMMC                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t POWER; /*!< SDMMC Power control Register. */
-	__IOM uint32_t CLKCR; /*!< SDMMC Clock Control Register. */
-	__IOM uint32_t ARG; /*!< SDMMC Argument register. */
-	__IOM uint32_t CMD; /*!< SDMMC Command register. */
-	__IM uint32_t RESPCMD; /*!< SDMMC Command Response register. */
-	__IM uint32_t RESP1; /*!< SDMMC Response 1 register. */
-	__IM uint32_t RESP2; /*!< SDMMC Response 2 register. */
-	__IM uint32_t RESP3; /*!< SDMMC Response 3 register. */
-	__IM uint32_t RESP4; /*!< SDMMC Response 4 register. */
-	__IOM uint32_t DTIMER; /*!< SDMMC Data Timeout Register. */
-	__IOM uint32_t DLEN; /*!< SDMMC Data Length register. */
-	__IOM uint32_t DCTRL; /*!< SDMMC Data Control register. */
-	__IM uint32_t DCOUNT; /*!< SDMMC Data Count register. */
-	__IM uint32_t STA; /*!< SDMMC Status register. */
-	__OM uint32_t ICR; /*!< SDMMC Interrupt Clear Register. */
-	__IOM uint32_t MASK; /*!< SDMMC interrupt Mask register. */
-	uint32_t RESERVED0[2U];
-	__IM uint32_t FIFOCNT; /*!< SDMMC FIFO Counter register. */
-	uint32_t RESERVED1[14U];
-	__IOM uint32_t FIFO; /*!< SDMMC FIFO register. */
-}STM32L4xx_SDMMC_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t POWER; /*!< SDMMC Power control Register. */
+		__IOM uint32_t CLKCR; /*!< SDMMC Clock Control Register. */
+		__IOM uint32_t ARG; /*!< SDMMC Argument register. */
+		__IOM uint32_t CMD; /*!< SDMMC Command register. */
+		__IM uint32_t RESPCMD; /*!< SDMMC Command Response register. */
+		__IM uint32_t RESP1; /*!< SDMMC Response 1 register. */
+		__IM uint32_t RESP2; /*!< SDMMC Response 2 register. */
+		__IM uint32_t RESP3; /*!< SDMMC Response 3 register. */
+		__IM uint32_t RESP4; /*!< SDMMC Response 4 register. */
+		__IOM uint32_t DTIMER; /*!< SDMMC Data Timeout Register. */
+		__IOM uint32_t DLEN; /*!< SDMMC Data Length register. */
+		__IOM uint32_t DCTRL; /*!< SDMMC Data Control register. */
+		__IM uint32_t DCOUNT; /*!< SDMMC Data Count register. */
+		__IM uint32_t STA; /*!< SDMMC Status register. */
+		__OM uint32_t ICR; /*!< SDMMC Interrupt Clear Register. */
+		__IOM uint32_t MASK; /*!< SDMMC interrupt Mask register. */
+		uint32_t RESERVED0[2U];
+		__IM uint32_t FIFOCNT; /*!< SDMMC FIFO Counter register. */
+		uint32_t RESERVED1[14U];
+		__IOM uint32_t FIFO; /*!< SDMMC FIFO register. */
+	}STM32L4xx_SDMMC_TypeDef;
 
-/*POWER register.*/
+	/*POWER register.*/
 #define SDMMC_POWER_PWRCTRL_Pos 0U
 #define SDMMC_POWER_PWRCTRL_Msk (0x3UL << SDMMC_POWER_PWRCTRL_Pos)
 #define SDMMC_POWER_PWRCTRL SDMMC_POWER_PWRCTRL_Msk
@@ -14316,112 +14316,112 @@ typedef struct
 /* ========================================================================= */
 /* ============                       CAN                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t MCR; /*!< CAN Master Control Register. */
-	__IOM uint32_t MSR; /*!< CAN Master Status Register. */
-	__IOM uint32_t TSR; /*!< CAN Transmit Status Register. */
-	__IOM uint32_t RF0R; /*!< CAN Receive FIFO 0 Register. */
-	__IOM uint32_t RF1R; /*!< CAN Receive FIFO 1 Register. */ 
-	__IOM uint32_t IER; /*!< CAN Interrupt Enable Register. */
-	__IOM uint32_t ESR; /*!< CAN Error Status Register. */
-	__IOM uint32_t BTR; /*!< CAN Bit Timing Register. */
-}STM32L4xx_CAN_control_and_status_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t MCR; /*!< CAN Master Control Register. */
+		__IOM uint32_t MSR; /*!< CAN Master Status Register. */
+		__IOM uint32_t TSR; /*!< CAN Transmit Status Register. */
+		__IOM uint32_t RF0R; /*!< CAN Receive FIFO 0 Register. */
+		__IOM uint32_t RF1R; /*!< CAN Receive FIFO 1 Register. */
+		__IOM uint32_t IER; /*!< CAN Interrupt Enable Register. */
+		__IOM uint32_t ESR; /*!< CAN Error Status Register. */
+		__IOM uint32_t BTR; /*!< CAN Bit Timing Register. */
+	}STM32L4xx_CAN_control_and_status_TypeDef;
 
-typedef struct
-{
-	__IOM uint32_t TI0R; /*!< CAN Tx mailbox Identifier Register 0. */
-	__IOM uint32_t TDT0R; /*!< CAN Tx mailbox Data length and Timestamp Register 0. */
-	__IOM uint32_t TDL0R; /*!< CAN Tx mailbox Data Low Register 0. */
-	__IOM uint32_t TDH0R; /*!< CAN Tx mailbox Data High Register 0. */
-	__IOM uint32_t TI1R; /*!< CAN Tx mailbox Identifier Register 1. */
-	__IOM uint32_t TDT1R; /*!< CAN Tx mailbox Data length and Timestamp Register 1. */
-	__IOM uint32_t TDL1R; /*!< CAN Tx mailbox Data Low Register 1. */
-	__IOM uint32_t TDH1R; /*!< CAN Tx mailbox Data High Register 1. */
-	__IOM uint32_t TI2R; /*!< CAN Tx mailbox Identifier Register 2. */
-	__IOM uint32_t TDT2R; /*!< CAN Tx mailbox Data length and Timestamp Register 2. */
-	__IOM uint32_t TDL2R; /*!< CAN Tx mailbox Data Low Register 2. */
-	__IOM uint32_t TDH2R; /*!< CAN Tx mailbox Data High Register 2. */
-	__IM uint32_t RI0R; /*!< CAN Rx mailbox Identifier Register 0. */
-	__IM uint32_t RDT0R; /*!< CAN Rx mailbox Data length and Timestamp Register 0. */
-	__IM uint32_t RDL0R; /*!< CAN Rx mailbox Data Low Register 0. */
-	__IM uint32_t RDH0R; /*!< CAN Rx mailbox Data High Register 0. */
-	__IM uint32_t RI1R; /*!< CAN Rx mailbox Identifier Register 1. */
-	__IM uint32_t RDT1R; /*!< CAN Rx mailbox Data length and Timestamp Register 1. */
-	__IM uint32_t RDL1R; /*!< CAN Rx mailbox Data Low Register 1. */
-	__IM uint32_t RDH1R; /*!< CAN Rx mailbox Data High Register 1. */
-}STM32L4xx_CAN_mailbox_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t TI0R; /*!< CAN Tx mailbox Identifier Register 0. */
+		__IOM uint32_t TDT0R; /*!< CAN Tx mailbox Data length and Timestamp Register 0. */
+		__IOM uint32_t TDL0R; /*!< CAN Tx mailbox Data Low Register 0. */
+		__IOM uint32_t TDH0R; /*!< CAN Tx mailbox Data High Register 0. */
+		__IOM uint32_t TI1R; /*!< CAN Tx mailbox Identifier Register 1. */
+		__IOM uint32_t TDT1R; /*!< CAN Tx mailbox Data length and Timestamp Register 1. */
+		__IOM uint32_t TDL1R; /*!< CAN Tx mailbox Data Low Register 1. */
+		__IOM uint32_t TDH1R; /*!< CAN Tx mailbox Data High Register 1. */
+		__IOM uint32_t TI2R; /*!< CAN Tx mailbox Identifier Register 2. */
+		__IOM uint32_t TDT2R; /*!< CAN Tx mailbox Data length and Timestamp Register 2. */
+		__IOM uint32_t TDL2R; /*!< CAN Tx mailbox Data Low Register 2. */
+		__IOM uint32_t TDH2R; /*!< CAN Tx mailbox Data High Register 2. */
+		__IM uint32_t RI0R; /*!< CAN Rx mailbox Identifier Register 0. */
+		__IM uint32_t RDT0R; /*!< CAN Rx mailbox Data length and Timestamp Register 0. */
+		__IM uint32_t RDL0R; /*!< CAN Rx mailbox Data Low Register 0. */
+		__IM uint32_t RDH0R; /*!< CAN Rx mailbox Data High Register 0. */
+		__IM uint32_t RI1R; /*!< CAN Rx mailbox Identifier Register 1. */
+		__IM uint32_t RDT1R; /*!< CAN Rx mailbox Data length and Timestamp Register 1. */
+		__IM uint32_t RDL1R; /*!< CAN Rx mailbox Data Low Register 1. */
+		__IM uint32_t RDH1R; /*!< CAN Rx mailbox Data High Register 1. */
+	}STM32L4xx_CAN_mailbox_TypeDef;
 
-typedef struct
-{
-	__IOM uint32_t FMR; /*!< CAN Filter Master Register. */
-	__IOM uint32_t FM1R; /*!< CAN Filter Mode Register. */
-	uint32_t RESERVED0;
-	__IOM uint32_t FS1R; /*!< CAN Filter Scale Register. */
-	uint32_t RESERVED1;
-	__IOM uint32_t FFA1R; /*!< CAN Filter FIFO Assignment Register. */
-	uint32_t RESERVED2;
-	__IOM uint32_t FA1R; /*!< CAN Filter Activation Register. */
-	uint32_t RESERVED3[8];
-	__IOM uint32_t F0R1; /*!< CAN Filter Bank 0 Register 1. */
-	__IOM uint32_t F0R2; /*!< CAN Filter Bank 0 Register 2. */
-	__IOM uint32_t F1R1; /*!< CAN Filter Bank 1 Register 1. */
-	__IOM uint32_t F1R2; /*!< CAN Filter Bank 1 Register 2. */
-	__IOM uint32_t F2R1; /*!< CAN Filter Bank 2 Register 1. */
-	__IOM uint32_t F2R2; /*!< CAN Filter Bank 2 Register 2. */
-	__IOM uint32_t F3R1; /*!< CAN Filter Bank 3 Register 1. */
-	__IOM uint32_t F3R2; /*!< CAN Filter Bank 3 Register 2. */
-	__IOM uint32_t F4R1; /*!< CAN Filter Bank 4 Register 1. */
-	__IOM uint32_t F4R2; /*!< CAN Filter Bank 4 Register 2. */
-	__IOM uint32_t F5R1; /*!< CAN Filter Bank 5 Register 1. */
-	__IOM uint32_t F5R2; /*!< CAN Filter Bank 5 Register 2. */
-	__IOM uint32_t F6R1; /*!< CAN Filter Bank 6 Register 1. */
-	__IOM uint32_t F6R2; /*!< CAN Filter Bank 6 Register 2. */
-	__IOM uint32_t F7R1; /*!< CAN Filter Bank 7 Register 1. */
-	__IOM uint32_t F7R2; /*!< CAN Filter Bank 7 Register 2. */
-	__IOM uint32_t F8R1; /*!< CAN Filter Bank 8 Register 1. */
-	__IOM uint32_t F8R2; /*!< CAN Filter Bank 8 Register 2. */
-	__IOM uint32_t F9R1; /*!< CAN Filter Bank 9 Register 1. */
-	__IOM uint32_t F9R2; /*!< CAN Filter Bank 9 Register 2. */
-	__IOM uint32_t F10R1; /*!< CAN Filter Bank 10 Register 1. */
-	__IOM uint32_t F10R2; /*!< CAN Filter Bank 10 Register 2. */
-	__IOM uint32_t F11R1; /*!< CAN Filter Bank 11 Register 1. */
-	__IOM uint32_t F11R2; /*!< CAN Filter Bank 11 Register 2. */
-	__IOM uint32_t F12R1; /*!< CAN Filter Bank 12 Register 1. */
-	__IOM uint32_t F12R2; /*!< CAN Filter Bank 12 Register 2. */
-	__IOM uint32_t F13R1; /*!< CAN Filter Bank 13 Register 1. */
-	__IOM uint32_t F13R2; /*!< CAN Filter Bank 13 Register 2. */
-	__IOM uint32_t F14R1; /*!< CAN Filter Bank 14 Register 1. */
-	__IOM uint32_t F14R2; /*!< CAN Filter Bank 14 Register 2. */
-	__IOM uint32_t F15R1; /*!< CAN Filter Bank 15 Register 1. */
-	__IOM uint32_t F15R2; /*!< CAN Filter Bank 15 Register 2. */
-	__IOM uint32_t F16R1; /*!< CAN Filter Bank 16 Register 1. */
-	__IOM uint32_t F16R2; /*!< CAN Filter Bank 16 Register 2. */
-	__IOM uint32_t F17R1; /*!< CAN Filter Bank 17 Register 1. */
-	__IOM uint32_t F17R2; /*!< CAN Filter Bank 17 Register 2. */
-	__IOM uint32_t F18R1; /*!< CAN Filter Bank 18 Register 1. */
-	__IOM uint32_t F18R2; /*!< CAN Filter Bank 18 Register 2. */
-	__IOM uint32_t F19R1; /*!< CAN Filter Bank 19 Register 1. */
-	__IOM uint32_t F19R2; /*!< CAN Filter Bank 19 Register 2. */
-	__IOM uint32_t F20R1; /*!< CAN Filter Bank 20 Register 1. */
-	__IOM uint32_t F20R2; /*!< CAN Filter Bank 20 Register 2. */
-	__IOM uint32_t F21R1; /*!< CAN Filter Bank 21 Register 1. */
-	__IOM uint32_t F21R2; /*!< CAN Filter Bank 21 Register 2. */
-	__IOM uint32_t F22R1; /*!< CAN Filter Bank 22 Register 1. */
-	__IOM uint32_t F22R2; /*!< CAN Filter Bank 22 Register 2. */
-	__IOM uint32_t F23R1; /*!< CAN Filter Bank 23 Register 1. */
-	__IOM uint32_t F23R2; /*!< CAN Filter Bank 23 Register 2. */
-	__IOM uint32_t F24R1; /*!< CAN Filter Bank 24 Register 1. */
-	__IOM uint32_t F24R2; /*!< CAN Filter Bank 24 Register 2. */
-	__IOM uint32_t F25R1; /*!< CAN Filter Bank 25 Register 1. */
-	__IOM uint32_t F25R2; /*!< CAN Filter Bank 25 Register 2. */
-	__IOM uint32_t F26R1; /*!< CAN Filter Bank 26 Register 1. */
-	__IOM uint32_t F26R2; /*!< CAN Filter Bank 26 Register 2. */
-	__IOM uint32_t F27R1; /*!< CAN Filter Bank 27 Register 1. */
-	__IOM uint32_t F27R2; /*!< CAN Filter Bank 27 Register 2. */
-}STM32L4xx_CAN_filter_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t FMR; /*!< CAN Filter Master Register. */
+		__IOM uint32_t FM1R; /*!< CAN Filter Mode Register. */
+		uint32_t RESERVED0;
+		__IOM uint32_t FS1R; /*!< CAN Filter Scale Register. */
+		uint32_t RESERVED1;
+		__IOM uint32_t FFA1R; /*!< CAN Filter FIFO Assignment Register. */
+		uint32_t RESERVED2;
+		__IOM uint32_t FA1R; /*!< CAN Filter Activation Register. */
+		uint32_t RESERVED3[8];
+		__IOM uint32_t F0R1; /*!< CAN Filter Bank 0 Register 1. */
+		__IOM uint32_t F0R2; /*!< CAN Filter Bank 0 Register 2. */
+		__IOM uint32_t F1R1; /*!< CAN Filter Bank 1 Register 1. */
+		__IOM uint32_t F1R2; /*!< CAN Filter Bank 1 Register 2. */
+		__IOM uint32_t F2R1; /*!< CAN Filter Bank 2 Register 1. */
+		__IOM uint32_t F2R2; /*!< CAN Filter Bank 2 Register 2. */
+		__IOM uint32_t F3R1; /*!< CAN Filter Bank 3 Register 1. */
+		__IOM uint32_t F3R2; /*!< CAN Filter Bank 3 Register 2. */
+		__IOM uint32_t F4R1; /*!< CAN Filter Bank 4 Register 1. */
+		__IOM uint32_t F4R2; /*!< CAN Filter Bank 4 Register 2. */
+		__IOM uint32_t F5R1; /*!< CAN Filter Bank 5 Register 1. */
+		__IOM uint32_t F5R2; /*!< CAN Filter Bank 5 Register 2. */
+		__IOM uint32_t F6R1; /*!< CAN Filter Bank 6 Register 1. */
+		__IOM uint32_t F6R2; /*!< CAN Filter Bank 6 Register 2. */
+		__IOM uint32_t F7R1; /*!< CAN Filter Bank 7 Register 1. */
+		__IOM uint32_t F7R2; /*!< CAN Filter Bank 7 Register 2. */
+		__IOM uint32_t F8R1; /*!< CAN Filter Bank 8 Register 1. */
+		__IOM uint32_t F8R2; /*!< CAN Filter Bank 8 Register 2. */
+		__IOM uint32_t F9R1; /*!< CAN Filter Bank 9 Register 1. */
+		__IOM uint32_t F9R2; /*!< CAN Filter Bank 9 Register 2. */
+		__IOM uint32_t F10R1; /*!< CAN Filter Bank 10 Register 1. */
+		__IOM uint32_t F10R2; /*!< CAN Filter Bank 10 Register 2. */
+		__IOM uint32_t F11R1; /*!< CAN Filter Bank 11 Register 1. */
+		__IOM uint32_t F11R2; /*!< CAN Filter Bank 11 Register 2. */
+		__IOM uint32_t F12R1; /*!< CAN Filter Bank 12 Register 1. */
+		__IOM uint32_t F12R2; /*!< CAN Filter Bank 12 Register 2. */
+		__IOM uint32_t F13R1; /*!< CAN Filter Bank 13 Register 1. */
+		__IOM uint32_t F13R2; /*!< CAN Filter Bank 13 Register 2. */
+		__IOM uint32_t F14R1; /*!< CAN Filter Bank 14 Register 1. */
+		__IOM uint32_t F14R2; /*!< CAN Filter Bank 14 Register 2. */
+		__IOM uint32_t F15R1; /*!< CAN Filter Bank 15 Register 1. */
+		__IOM uint32_t F15R2; /*!< CAN Filter Bank 15 Register 2. */
+		__IOM uint32_t F16R1; /*!< CAN Filter Bank 16 Register 1. */
+		__IOM uint32_t F16R2; /*!< CAN Filter Bank 16 Register 2. */
+		__IOM uint32_t F17R1; /*!< CAN Filter Bank 17 Register 1. */
+		__IOM uint32_t F17R2; /*!< CAN Filter Bank 17 Register 2. */
+		__IOM uint32_t F18R1; /*!< CAN Filter Bank 18 Register 1. */
+		__IOM uint32_t F18R2; /*!< CAN Filter Bank 18 Register 2. */
+		__IOM uint32_t F19R1; /*!< CAN Filter Bank 19 Register 1. */
+		__IOM uint32_t F19R2; /*!< CAN Filter Bank 19 Register 2. */
+		__IOM uint32_t F20R1; /*!< CAN Filter Bank 20 Register 1. */
+		__IOM uint32_t F20R2; /*!< CAN Filter Bank 20 Register 2. */
+		__IOM uint32_t F21R1; /*!< CAN Filter Bank 21 Register 1. */
+		__IOM uint32_t F21R2; /*!< CAN Filter Bank 21 Register 2. */
+		__IOM uint32_t F22R1; /*!< CAN Filter Bank 22 Register 1. */
+		__IOM uint32_t F22R2; /*!< CAN Filter Bank 22 Register 2. */
+		__IOM uint32_t F23R1; /*!< CAN Filter Bank 23 Register 1. */
+		__IOM uint32_t F23R2; /*!< CAN Filter Bank 23 Register 2. */
+		__IOM uint32_t F24R1; /*!< CAN Filter Bank 24 Register 1. */
+		__IOM uint32_t F24R2; /*!< CAN Filter Bank 24 Register 2. */
+		__IOM uint32_t F25R1; /*!< CAN Filter Bank 25 Register 1. */
+		__IOM uint32_t F25R2; /*!< CAN Filter Bank 25 Register 2. */
+		__IOM uint32_t F26R1; /*!< CAN Filter Bank 26 Register 1. */
+		__IOM uint32_t F26R2; /*!< CAN Filter Bank 26 Register 2. */
+		__IOM uint32_t F27R1; /*!< CAN Filter Bank 27 Register 1. */
+		__IOM uint32_t F27R2; /*!< CAN Filter Bank 27 Register 2. */
+	}STM32L4xx_CAN_filter_TypeDef;
 
-/*MCR register.*/
+	/*MCR register.*/
 #define CAN_MCR_DBF_Pos 16U
 #define CAN_MCR_DBF_Msk (0x1UL << CAN_MCR_DBF_Pos)
 #define CAN_MCR_DBF CAN_MCR_DBF_Msk
@@ -15230,18 +15230,18 @@ typedef struct
 /* ========================================================================= */
 /* ============                       USB                       ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IOM uint32_t CNTR; /*!< USB control register */
-	__IOM uint32_t ISTR; /*!< USB interrupt status register */
-	__IM uint32_t FNR; /*!< USB frame number register */
-	__IOM uint32_t DADDR; /*!< USB device address */
-	__IOM uint32_t BTABLE; /*!< Buffer table address */
-	__IOM uint32_t LPMCSR; /*!< LPM control and status register */
-	__IOM uint32_t BCDR; /*!< Battery charging detector */
-}STM32L4xx_USB_FS_TypeDef;
+	typedef struct
+	{
+		__IOM uint32_t CNTR; /*!< USB control register */
+		__IOM uint32_t ISTR; /*!< USB interrupt status register */
+		__IM uint32_t FNR; /*!< USB frame number register */
+		__IOM uint32_t DADDR; /*!< USB device address */
+		__IOM uint32_t BTABLE; /*!< Buffer table address */
+		__IOM uint32_t LPMCSR; /*!< LPM control and status register */
+		__IOM uint32_t BCDR; /*!< Battery charging detector */
+	}STM32L4xx_USB_FS_TypeDef;
 
-/*CNTR register*/
+	/*CNTR register*/
 #define USB_CNTR_CTRM_Pos 15U
 #define USB_CNTR_CTRM_Msk (0x1UL << USB_CNTR_CTRM_Pos)
 #define USB_CNTR_CTRM USB_CNTR_CTRM_Msk
@@ -15436,85 +15436,80 @@ typedef struct
 #define USB_BCDR_BCDEN_Msk (0x1UL << USB_BCDR_BCDEN_Pos)
 #define USB_BCDR_BCDEN USB_BCDR_BCDEN_Msk
 
-/*EPR register*/
-#define USB_EPR_CTR_RX_Pos 15U
-#define USB_EPR_CTR_RX_Msk (0x1UL << USB_EPR_CTR_RX_Pos)
-#define USB_EPR_CTR_RX USB_EPR_CTR_RX_Msk
+/*EP register*/
+#define USB_EP_CTR_RX_Pos 15U
+#define USB_EP_CTR_RX_Msk (0x1UL << USB_EP_CTR_RX_Pos)
+#define USB_EP_CTR_RX USB_EP_CTR_RX_Msk
 
-#define USB_EPR_DTOG_RX_Pos 14U
-#define USB_EPR_DTOG_RX_Msk (0x1UL << USB_EPR_DTOG_RX_Pos)
-#define USB_EPR_DTOG_RX USB_EPR_DTOG_RX_Msk
-#define USBD_EPR_SWBUF_TX_Pos 14U
-#define USBD_EPR_SWBUF_TX_Msk (0x1UL << USBD_EPR_SWBUF_TX_Pos)
-#define USBD_EPR_SWBUF_TX USBD_EPR_SWBUF_TX_Msk
+#define USB_EP_DTOG_RX_Pos 14U
+#define USB_EP_DTOG_RX_Msk (0x1UL << USB_EP_DTOG_RX_Pos)
+#define USB_EP_DTOG_RX USB_EP_DTOG_RX_Msk
+#define USB_EP_SWBUF_TX_Pos 14U
+#define USB_EP_SWBUF_TX_Msk (0x1UL << USB_EP_SWBUF_TX_Pos)
+#define USB_EP_SWBUF_TX USB_EP_SWBUF_TX_Msk
 
-#define USB_EPR_STAT_RX_Pos 12U
-#define USB_EPR_STAT_RX_Msk (0x3UL << USB_EPR_STAT_RX_Pos)
-#define USB_EPR_STAT_RX USB_EPR_STAT_RX_Msk
-#define USB_EPR_STAT_RX_DISABLED (0x0UL << USB_EPR_STAT_RX_Pos)
-#define USB_EPR_STAT_RX_STALL (0x1UL << USB_EPR_STAT_RX_Pos)
-#define USB_EPR_STAT_RX_NAK (0x2UL << USB_EPR_STAT_RX_Pos)
-#define USB_EPR_STAT_RX_VALID (0x3UL << USB_EPR_STAT_RX_Pos)
+#define USB_EP_STAT_RX_Pos 12U
+#define USB_EP_STAT_RX_Msk (0x3UL << USB_EP_STAT_RX_Pos)
+#define USB_EP_STAT_RX USB_EP_STAT_RX_Msk
+#define USB_EP_STAT_RX_DISABLED (0x0UL << USB_EP_STAT_RX_Pos)
+#define USB_EP_STAT_RX_STALL (0x1UL << USB_EP_STAT_RX_Pos)
+#define USB_EP_STAT_RX_NAK (0x2UL << USB_EP_STAT_RX_Pos)
+#define USB_EP_STAT_RX_VALID (0x3UL << USB_EP_STAT_RX_Pos)
 
-#define USB_EPR_SETUP_Pos 11U
-#define USB_EPR_SETUP_Msk (0x3UL << USB_EPR_SETUP_Pos)
-#define USB_EPR_SETUP USB_EPR_SETUP_Msk
+#define USB_EP_SETUP_Pos 11U
+#define USB_EP_SETUP_Msk (0x3UL << USB_EP_SETUP_Pos)
+#define USB_EP_SETUP USB_EP_SETUP_Msk
 
-#define USB_EPR_TYPE_Pos 9U
-#define USB_EPR_TYPE_Msk (0x3UL << USB_EPR_TYPE_Pos)
-#define USB_EPR_TYPE USB_EPR_TYPE_Msk
-#define USB_EPR_TYPE_BULK (0x0UL << USB_EPR_TYPE_Pos)
-#define USB_EPR_TYPE_CONTROL (0x1UL << USB_EPR_TYPE_Pos)
-#define USB_EPR_TYPE_ISOCHRONOUS (0x2UL << USB_EPR_TYPE_Pos)
-#define USB_EPR_TYPE_INTERRUPT (0x3UL << USB_EPR_TYPE_Pos)
-#define USB_EPR_KIND_Pos 8U
-#define USB_EPR_KIND_Msk (0x1UL << USB_EPR_KIND_Pos)
-#define USB_EPR_KIND USB_EPR_KIND_Msk
+#define USB_EP_TYPE_Pos 9U
+#define USB_EP_TYPE_Msk (0x3UL << USB_EP_TYPE_Pos)
+#define USB_EP_TYPE USB_EP_TYPE_Msk
+#define USB_EP_TYPE_BULK (0x0UL << USB_EP_TYPE_Pos)
+#define USB_EP_TYPE_CONTROL (0x1UL << USB_EP_TYPE_Pos)
+#define USB_EP_TYPE_ISOCHRONOUS (0x2UL << USB_EP_TYPE_Pos)
+#define USB_EP_TYPE_INTERRUPT (0x3UL << USB_EP_TYPE_Pos)
 
-#define USB_EPR_CTR_TX_Pos 7U
-#define USB_EPR_CTR_TX_Msk (0x1UL << USB_EPR_CTR_TX_Pos)
-#define USB_EPR_CTR_TX USB_EPR_CTR_TX_Msk
+#define USB_EP_KIND_Pos 8U
+#define USB_EP_KIND_Msk (0x1UL << USB_EP_KIND_Pos)
+#define USB_EP_KIND USB_EP_KIND_Msk
 
-#define USB_EPR_DTOG_TX_Pos 6U
-#define USB_EPR_DTOG_TX_Msk (0x1UL << USB_EPR_DTOG_TX_Pos)
-#define USB_EPR_DTOG_TX USB_EPR_DTOG_TX_Msk
-#define USBD_EPR_SWBUF_RX_Pos 6U
-#define USBD_EPR_SWBUF_RX_Msk (0x1UL << USBD_EPR_SWBUF_RX_Pos)
-#define USBD_EPR_SWBUF_RX USBD_EPR_SWBUF_RX_Msk
+#define USB_EP_CTR_TX_Pos 7U
+#define USB_EP_CTR_TX_Msk (0x1UL << USB_EP_CTR_TX_Pos)
+#define USB_EP_CTR_TX USB_EP_CTR_TX_Msk
 
-#define USB_EPR_STAT_TX_Pos 4U
-#define USB_EPR_STAT_TX_Msk (0x3UL << USB_EPR_STAT_TX_Pos)
-#define USB_EPR_STAT_TX USB_EPR_STAT_TX_Msk
-#define USB_EPR_STAT_TX_DISABLED (0x0UL << USB_EPR_STAT_TX_Pos)
-#define USB_EPR_STAT_TX_STALL (0x1UL << USB_EPR_STAT_TX_Pos)
-#define USB_EPR_STAT_TX_NAK (0x2UL << USB_EPR_STAT_TX_Pos)
-#define USB_EPR_STAT_TX_VALID (0x3UL << USB_EPR_STAT_TX_Pos)
+#define USB_EP_DTOG_TX_Pos 6U
+#define USB_EP_DTOG_TX_Msk (0x1UL << USB_EP_DTOG_TX_Pos)
+#define USB_EP_DTOG_TX USB_EP_DTOG_TX_Msk
+#define USB_EP_SWBUF_RX_Pos 6U
+#define USB_EP_SWBUF_RX_Msk (0x1UL << USB_EP_SWBUF_RX_Pos)
+#define USB_EP_SWBUF_RX USB_EP_SWBUF_RX_Msk
 
-#define USB_EPR_EA_Pos 0U
-#define USB_EPR_EA_Msk (0xFUL << USB_EPR_EA_Pos)
-#define USB_EPR_EA USB_EPR_EA_Msk
+#define USB_EP_STAT_TX_Pos 4U
+#define USB_EP_STAT_TX_Msk (0x3UL << USB_EP_STAT_TX_Pos)
+#define USB_EP_STAT_TX USB_EP_STAT_TX_Msk
+#define USB_EP_STAT_TX_DISABLED (0x0UL << USB_EP_STAT_TX_Pos)
+#define USB_EP_STAT_TX_STALL (0x1UL << USB_EP_STAT_TX_Pos)
+#define USB_EP_STAT_TX_NAK (0x2UL << USB_EP_STAT_TX_Pos)
+#define USB_EP_STAT_TX_VALID (0x3UL << USB_EP_STAT_TX_Pos)
 
-#define USBD_EPR_RW_Msk (USBD_EP_SETUP_Msk | USBD_EP_TYPE_Msk | USBD_EP_KIND_Msk | USBD_EP_ADDRESS_Msk)
-#define USBD_EPR_RW USBD_EPR_RW_Msk
-#define USBD_EPR_RC_W0_Msk (USBD_EP_CTR_RX_Msk | USBD_EP_CTR_TX_Msk)
-#define USBD_EPR_RC_W0 USBD_EPR_RC_W0_Msk
-#define USBD_EPR_T_Msk (USBD_EP_DTOG_RX_Msk | USBD_EP_STAT_RX_Msk | USBD_EP_DTOG_TX_Msk | USBD_EP_STAT_TX_Msk)
-#define USBD_EPR_T USBD_EPR_T_Msk
+#define USB_EP_EA_Pos 0U
+#define USB_EP_EA_Msk (0xFUL << USB_EP_EA_Pos)
+#define USB_EP_EA USB_EP_EA_Msk
+
 #endif
 
 /* ========================================================================= */
 /* ============                     DBGMCU                      ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IM uint32_t IDCODE; /*!< Debug MCU device ID Code . */
-	__IOM uint32_t CR; /*!< Debug MCU Configuration Register. */
-	__IOM uint32_t APB1FZR1; /*!< Debug MCU APB1 Freeze Register 1. */
-	__IOM uint32_t APB1FZR2; /*!< Debug MCU APB1 Freeze Register 2. */
-	__IOM uint32_t APB2FZR; /*!< Debug MCU APB2 Freeze Register. */
-}STM32L4xx_DBGMCU_TypeDef;
+	typedef struct
+	{
+		__IM uint32_t IDCODE; /*!< Debug MCU device ID Code . */
+		__IOM uint32_t CR; /*!< Debug MCU Configuration Register. */
+		__IOM uint32_t APB1FZR1; /*!< Debug MCU APB1 Freeze Register 1. */
+		__IOM uint32_t APB1FZR2; /*!< Debug MCU APB1 Freeze Register 2. */
+		__IOM uint32_t APB2FZR; /*!< Debug MCU APB2 Freeze Register. */
+	}STM32L4xx_DBGMCU_TypeDef;
 
-/*IDCODE register.*/
+	/*IDCODE register.*/
 #define DBGMCU_IDCODE_REV_ID_Pos 16U
 #define DBGMCU_IDCODE_REV_ID_Msk (0xFFFFUL << DBGMCU_IDCODE_REV_ID_Pos)
 #define DBGMCU_IDCODE_REV_ID DBGMCU_IDCODE_REV_ID_Msk
@@ -15610,20 +15605,20 @@ typedef struct
 /* ========================================================================= */
 /* ============           Device Electronic Signature           ============ */
 /* ========================================================================= */
-typedef struct
-{
-	__IM uint32_t UID[3]; /*!< Unique device ID register (96 bit). */
-}STM32L4xx_DES_UID_TypeDef;
+	typedef struct
+	{
+		__IM uint32_t UID[3]; /*!< Unique device ID register (96 bit). */
+	}STM32L4xx_DES_UID_TypeDef;
 
-typedef struct
-{
-	__IM uint32_t FLASH_SIZE; /*!< Flash Size data register. */
-}STM32L4xx_DES_Flash_Size_Data_TypeDef;
+	typedef struct
+	{
+		__IM uint32_t FLASH_SIZE; /*!< Flash Size data register. */
+	}STM32L4xx_DES_Flash_Size_Data_TypeDef;
 
-typedef struct
-{
-	__IM uint32_t PKG; /*!< Package data register. */
-}STM32L4xx_DES_Package_Data_TypeDef;
+	typedef struct
+	{
+		__IM uint32_t PKG; /*!< Package data register. */
+	}STM32L4xx_DES_Package_Data_TypeDef;
 
 #define DES_FLASH_SIZE_DATA_Pos 0U
 #define DES_FLASH_SIZE_DATA_Msk (0xFFFFUL << FLASH_SIZE_DATA_Pos)
@@ -15646,19 +15641,19 @@ typedef struct
 #define DES_PKG_DATA_WLCSP36_SMPS (0xFUL << DES_PKG_DATA_Pos)
 #define DES_PKG_DATA_LQFP64_SMPS (0x16UL << DES_PKG_DATA_Pos)
 
-/* ================  End of section using anonymous unions  ================ */
+	/* ================  End of section using anonymous unions  ================ */
 #if defined (__GNUC__)
 /* anonymous unions are enabled by default */
 #else
-#warning Not supported compiler type
+	#warning Not supported compiler type
 #endif
 
 
-/* ========================================================================= */
-/* ============     Device Specific Peripheral Address Map      ============ */
-/* ========================================================================= */
+		/* ========================================================================= */
+		/* ============     Device Specific Peripheral Address Map      ============ */
+		/* ========================================================================= */
 
-/* Peripheral and SRAM base address */
+		/* Peripheral and SRAM base address */
 #define STM32L4xx_FLASH_BASE       (0x08000000UL)                              /* (FLASH     ) Base Address */
 #define STM32L4xx_SRAM_BASE        (0x20000000UL)                              /* (SRAM      ) Base Address */
 #define STM32L4xx_PERIPH_BASE      (0x40000000UL)                              /* (Peripheral) Base Address */
@@ -15732,7 +15727,8 @@ typedef struct
 #endif
 #define STM32L4xx_PWR_BASE (STM32L4xx_APB2_PERIPHERAL_BASE + 0x7000UL)
 #if !defined(STM32L431) && !defined(STM32L451)
-#define STM32L4xx_USB_FS_BASE (STM32L4xx_APB2_PERIPHERAL_BASE + 0x6800UL)
+#define STM32L4xx_USB_EP_BASE (STM32L4xx_APB2_PERIPHERAL_BASE + 0x6800UL)
+#define STM32L4xx_USB_FS_BASE (STM32L4xx_APB2_PERIPHERAL_BASE + 0x6840UL)
 #define STM32L4xx_USB_SRAM_BASE (STM32L4xx_APB2_PERIPHERAL_BASE + 0x6C00UL)
 #endif
 #if !defined(STM32L412) && !defined(STM32L422)
