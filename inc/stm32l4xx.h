@@ -15900,7 +15900,7 @@ typedef struct
 #define GET(reg, mask) ((reg) & (mask))
 #define TOGGLE(reg, flags) ((reg) ^= (flags))
 
-#define GET_BIT(reg, bit_mask) (!((reg) & (bit_mask))) ? 0x0U : 0x1U
+#define GET_BIT(reg, mask) (!((reg) & (mask))) ? 0x0U : 0x1U
 #define GET_VAL(reg, mask, pos) (((reg) & (mask)) >> (pos))
 
 #define MIN(x, y) ((x) < (y)) ? (x) : (y)
