@@ -2,13 +2,15 @@
 
 This template is a work in progress, it might contain bugs, errors or missing elements.
 
-This template is might be incompatible with the one provided by STM32CubeL4.
+This template is incompatible with STMicroelectronics implementation.
 
 File tree:
 ```
 STM32L4xx
 ├───CMSIS_6
 ├───inc
+│    ├───assert_stm32l4xx.h
+│    ├───spinlock_stm32l4xx.h
 │    ├───stm32l4xx.h
 │    └───system_stm32l4xx.h
 ├───src
